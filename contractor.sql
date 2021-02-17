@@ -18,6 +18,5 @@ FOREIGN KEY(current_project_id) REFERENCES ongoing_projects(ongoing_projects_id)
 );
 INSERT INTO contractors(contractor_name,dob,current_project_id,phone_number,email) 
 VALUES ('Contractor 1','2001-01-01',1,12456889,'abc@xyz.com');
-INSERT INTO contractors(contractor_name,dob,current_project_id,phone_number,email) 
-VALUES ('Contractor 2','2001-01-01',4,12456889,'abc@xyz.com');
+
 
