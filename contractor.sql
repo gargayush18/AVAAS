@@ -5,6 +5,7 @@ CREATE TABLE ongoing_projects
 ongoing_projects_id INT PRIMARY KEY AUTO_INCREMENT
 );
 -- inserting dummy ongoing projects
+--
 INSERT INTO ongoing_projects VALUES ();
 INSERT INTO ongoing_projects VALUES ();
 INSERT INTO ongoing_projects VALUES ();
