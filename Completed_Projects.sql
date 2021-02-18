@@ -1,9 +1,9 @@
 use AVAAS;
 create table Completed_Projects (
-	ID int not null,
-	location varchar(200) not null,
-    size float(2) check(size>0) not null, 
-    price float(2) check (price>0) not null, /*In crores*/
+    ID int not null,
+    location varchar(200) not null,
+    size float(2) not null check(size>0.00), 
+    price float(2) not null check(price>0.00), /*In crores*/
     primary key(ID)
 );
 insert into Completed_Projects values(1,'110060 Old Rajinder Nagar',11.23, 1.20);
