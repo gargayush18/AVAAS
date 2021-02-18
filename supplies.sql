@@ -10,6 +10,6 @@ FOREIGN KEY (project_supplies_id) REFERENCES ongoing_projects(ongoing_project_id
 );
 
 INSERT INTO supplies VALUES(1, 1000, 500.40, 2000.5);
-INSERT INTO supplies VALUES(2, 2000, 690.69, 6969.6);
-INSERT INTO supplies VALUES(3, 1549, 420.42, 96969.9);
+INSERT INTO supplies VALUES(2, 2000, 680.69, 1234.5);
+INSERT INTO supplies VALUES(3, 1549, 420.42, 78989.6);
 
