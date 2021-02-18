@@ -1,4 +1,4 @@
-use AVAAs;
+use AVAAS;
 create table Completed_Projects (
 	ID int not null,
 	location varchar(200) not null,
