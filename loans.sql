@@ -4,7 +4,7 @@ CREATE TABLE loans
 loan_id INT PRIMARY KEY,
 borrower VARCHAR(100) NOT NULL,
 lender VARCHAR(100) NOT NULL,
-interest_rate DECIMAL(13,2) NOT NULL CHECK(interest_rate<=100.0),
+interest_rate DECIMAL(13,2) NOT NULL CHECK(interest_rate<=100.0 AND interest_rate>=0),
 date_of_issue DATE NOT NULL,
 loan_amount DECIMAL(13,2) NOT NULL CHECK(loan_amount>0.0),
 amount_paid_back DECIMAL(13,2) 
