@@ -1,13 +1,15 @@
 USE AVAAS;
 CREATE TABLE supplies
 (
-ProductID INT PRIMARY KEY,
-productname VARCHAR(100) NOT NULL,
-quantity INT NOT NULL,
-FOREIGN KEY (ongoing_project_id) REFERENCES ongoing_projects(ongoing_project_id)
+project_supplies_id INT PRIMARY KEY,
+sariya INT NOT NULL,
+cement DECIMAL(8,3) NOT NULL,
+rodhha_patthar DECIMAL(8,3) NOT NULL,
+  
+FOREIGN KEY (project_supplies_id) REFERENCES ongoing_projects(ongoing_project_id)
 );
 
-INSERT INTO supplies VALUES(1,'Sariya',12);
-INSERT INTO supplies VALUES(2,'Cement',10);
-INSERT INTO supplies VALUES(3,'Rodhha-pathhar',100000);
+INSERT INTO supplies VALUES(1, 1000, 500.40, 2000.5);
+INSERT INTO supplies VALUES(2, 2000, 690.69, 6969.6);
+INSERT INTO supplies VALUES(3, 1549, 420.42, 96969.9);
 
