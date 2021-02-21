@@ -51,13 +51,17 @@ FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
 CREATE TABLE IF NOT EXISTS contractors
 (
 contractor_id INT PRIMARY KEY ,
-f_customer_id INT ,
+
 contractor_name VARCHAR(100) NOT NULL,
 dob DATE NOT NULL,
 -- current_project_id INT,
-booked VARCHAR(3) CHECK (booked IN('YES','NO')),
+contactdetails VARCHAR(31000) NOT NULL,
 competency_score INT CHECK(competency_score>=0 AND competency_score<=100),
-phone_number INT NOT NULL CHECK(phone_number>999999),
+booked VARCHAR(3) CHECK (booked IN('YES','NO')),
+
+phone_number INT  CHECK(phone_number>999999),
+f_customer_id INT ,
+
 -- FOREIGN KEY(current_project_id) REFERENCES ongoing_projects(ongoing_projects_id)
 FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
 );
@@ -104,11 +108,11 @@ CREATE TABLE IF NOT EXISTS Completed_Projects
 );
 CREATE TABLE IF NOT EXISTS Public
 (
-	public_id INT PRIMARY KEY,
-	house_assigned INT ,
+  public_id INT PRIMARY KEY,
+  house_assigned INT ,
     f_customer_id INT,
-	name VARCHAR(200) NOT NULL,
-	competence_score INT ,
+  name VARCHAR(200) NOT NULL,
+  competence_score INT ,
     FOREIGN KEY (house_assigned) REFERENCES Completed_Projects(completed_project_id),
    FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
 );
@@ -121,5 +125,3 @@ owner_id INT,
 FOREIGN KEY(project_id) REFERENCES Completed_Projects(completed_project_id),
 FOREIGN KEY(owner_id) REFERENCES Public(public_id)
 );
-
-
