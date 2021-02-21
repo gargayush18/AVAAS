@@ -94,10 +94,9 @@ FOREIGN KEY (p_contractor_id) REFERENCES contractors(contractor_id)
 CREATE TABLE IF NOT EXISTS supplies
 (
 project_supplies_id INT PRIMARY KEY,
-sariya INT NOT NULL,
-cement DECIMAL(8,3) NOT NULL,
-rodhha_patthar DECIMAL(8,3) NOT NULL,
-  
+construction_material INT NOT NULL,
+labour int ,
+engineers int,  
 FOREIGN KEY (project_supplies_id) REFERENCES ongoing_projects(ongoing_project_id)
 );
 CREATE TABLE IF NOT EXISTS Completed_Projects 
@@ -116,13 +115,23 @@ CREATE TABLE IF NOT EXISTS Completed_Projects
 CREATE TABLE IF NOT EXISTS Public
 (
   public_id INT PRIMARY KEY,
+  name VARCHAR(200) NOT NULL,
   house_assigned INT ,
     f_customer_id INT,
-  name VARCHAR(200) NOT NULL,
   competence_score INT ,
     FOREIGN KEY (house_assigned) REFERENCES Completed_Projects(completed_project_id),
    FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
 );
+
+create table if not exists public_competence
+(
+public_id int primary key,
+financial_category varchar(100),
+no_of_female_members int,
+loans_cleared varchar(3) check(loans_cleared in('YES','NO')),
+foreign key(public_id) references Public(public_id)
+);
+
 CREATE TABLE IF NOT EXISTS houses_in_one_project
 (
 house_id INT PRIMARY KEY,
@@ -132,5 +141,27 @@ owner_id INT,
 FOREIGN KEY(project_id) REFERENCES Completed_Projects(completed_project_id),
 FOREIGN KEY(owner_id) REFERENCES Public(public_id)
 );
+CREATE TABLE IF NOT EXISTS reviews
+(
+review_id INT PRIMARY KEY,
+public_id INT NOT NULL,
+project_id INT NOT NULL,
+review_score INT CHECK(review_score>=0 AND review_score<=10),
+review_comment VARCHAR(500),
+FOREIGN KEY (public_id) REFERENCES Public(public_id),
+FOREIGN KEY (project_id) REFERENCES Completed_Projects(completed_project_id)
+);
+CREATE TABLE IF NOT EXISTS queries
+(
+query_id INT PRIMARY KEY,
+public_id INT NOT NULL,
+house_id INT NOT NULL,
+actual_query VARCHAR(500),
+date_posted DATE NOT NULL,
+resolved VARCHAR(3) CHECK(resolved IN ('YES','NO')),
+FOREIGN KEY (public_id) REFERENCES Public(public_id),
+FOREIGN KEY (house_id) REFERENCES houses_in_one_project(house_id)
+);
+
 
 
