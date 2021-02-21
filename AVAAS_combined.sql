@@ -1,4 +1,4 @@
-create database AVAAS;
+CREATE DATABASE AVAAS;
 USE AVAAS;
 CREATE TABLE IF NOT EXISTS Financial_Institutions 
 (
@@ -29,9 +29,6 @@ loan_maturity_in_years INT NOT NULL,
 FOREIGN KEY(id_borrower) REFERENCES Financial_Customers(f_customer_id),
 FOREIGN KEY(id_lender) REFERENCES Financial_Institutions(f_institution_id)
 );
--- INSERT INTO loans VALUES(1,'Tapan Roy','SBI',4.8,'2016-12-14',500000.0,200000.0);
--- INSERT INTO loans VALUES(2,'Tapan Roy','City Bank',6.8,'2016-05-14',1000000.0,200000.0);
--- INSERT INTO loans VALUES(3,'Boris Singh','YES Bank',5.8,'2012-05-20',1000000.0,800000.0);
 CREATE TABLE IF NOT EXISTS transactions
 (
 id_transaction INT PRIMARY KEY,
@@ -45,24 +42,24 @@ amount DECIMAL(13,2) NOT NULL
 CREATE TABLE IF NOT EXISTS government
 (
 govt_id INT PRIMARY KEY,
-f_customer_id int,
+f_customer_id INT,
 employee_name VARCHAR(100) NOT NULL,
-location varchar(100),
+location VARCHAR(100),
 department VARCHAR(100),
-foreign key (f_customer_id) references Financial_Customers(f_customer_id)
+FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
 );
 CREATE TABLE IF NOT EXISTS contractors
 (
 contractor_id INT PRIMARY KEY ,
-f_customer_id int ,
+f_customer_id INT ,
 contractor_name VARCHAR(100) NOT NULL,
 dob DATE NOT NULL,
 -- current_project_id INT,
-booked varchar(3) check (booked in('YES','NO')),
-competency_score INT check(competency_score>=0 and competency_score<=100),
-phone_number INT NOT NULL check(phone_number>999999),
+booked VARCHAR(3) CHECK (booked IN('YES','NO')),
+competency_score INT CHECK(competency_score>=0 AND competency_score<=100),
+phone_number INT NOT NULL CHECK(phone_number>999999),
 -- FOREIGN KEY(current_project_id) REFERENCES ongoing_projects(ongoing_projects_id)
-foreign key (f_customer_id) references Financial_Customers(f_customer_id)
+FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
 );
 
 CREATE TABLE IF NOT EXISTS contractor_competency
@@ -109,11 +106,20 @@ CREATE TABLE IF NOT EXISTS Public
 (
 	public_id INT PRIMARY KEY,
 	house_assigned INT ,
-    f_customer_id int,
+    f_customer_id INT,
 	name VARCHAR(200) NOT NULL,
 	competence_score INT ,
     FOREIGN KEY (house_assigned) REFERENCES Completed_Projects(completed_project_id),
-   foreign key (f_customer_id) references Financial_Customers(f_customer_id)
+   FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
+);
+CREATE TABLE IF NOT EXISTS houses_in_one_project
+(
+house_id INT PRIMARY KEY,
+project_id INT NOT NULL,
+assigned VARCHAR(3) NOT NULL CHECK(assigned IN('YES','NO')),
+owner_id INT,
+FOREIGN KEY(project_id) REFERENCES Completed_Projects(completed_project_id),
+FOREIGN KEY(owner_id) REFERENCES Public(public_id)
 );
 
 
