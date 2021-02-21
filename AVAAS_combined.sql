@@ -45,20 +45,24 @@ amount DECIMAL(13,2) NOT NULL
 CREATE TABLE IF NOT EXISTS government
 (
 govt_id INT PRIMARY KEY,
+f_customer_id int,
 employee_name VARCHAR(100) NOT NULL,
 location varchar(100),
-department VARCHAR(100)
+department VARCHAR(100),
+foreign key (f_customer_id) references Financial_Customers(f_customer_id)
 );
 CREATE TABLE IF NOT EXISTS contractors
 (
 contractor_id INT PRIMARY KEY ,
+f_customer_id int ,
 contractor_name VARCHAR(100) NOT NULL,
 dob DATE NOT NULL,
 -- current_project_id INT,
 booked varchar(3) check (booked in('YES','NO')),
 competency_score INT check(competency_score>=0 and competency_score<=100),
-phone_number INT NOT NULL check(phone_number>999999)
+phone_number INT NOT NULL check(phone_number>999999),
 -- FOREIGN KEY(current_project_id) REFERENCES ongoing_projects(ongoing_projects_id)
+foreign key (f_customer_id) references Financial_Customers(f_customer_id)
 );
 
 CREATE TABLE IF NOT EXISTS contractor_competency
@@ -105,8 +109,11 @@ CREATE TABLE IF NOT EXISTS Public
 (
 	public_id INT PRIMARY KEY,
 	house_assigned INT ,
+    f_customer_id int,
 	name VARCHAR(200) NOT NULL,
 	competence_score INT ,
-    FOREIGN KEY (house_assigned) REFERENCES Completed_Projects(completed_project_id)
+    FOREIGN KEY (house_assigned) REFERENCES Completed_Projects(completed_project_id),
+   foreign key (f_customer_id) references Financial_Customers(f_customer_id)
 );
+
 
