@@ -3,13 +3,14 @@ USE AVAAS;
 CREATE TABLE IF NOT EXISTS Financial_Institutions 
 (
   f_institution_id INT PRIMARY KEY ,
-  name VARCHAR(45) NOT NULL,
-  location VARCHAR(45) NOT NULL
+  name VARCHAR(100) NOT NULL,
+  location VARCHAR(100) NOT NULL
 );
+
 CREATE TABLE IF NOT EXISTS Financial_Customers 
 (
   f_customer_id INT PRIMARY KEY,
-  name VARCHAR(45) NOT NULL,
+  name VARCHAR(100) NOT NULL,
   -- f_institution VARCHAR(45) NOT NULL,
   category VARCHAR(50) NOT NULL CHECK( category IN('government','public','contractor')),
   loans_clear BOOL NOT NULL
@@ -17,8 +18,8 @@ CREATE TABLE IF NOT EXISTS Financial_Customers
 CREATE TABLE IF NOT EXISTS loans
 (
 loan_id INT PRIMARY KEY,
-borrower VARCHAR(100) NOT NULL,
-lender VARCHAR(100) NOT NULL,
+borrower VARCHAR(200) NOT NULL,
+lender VARCHAR(200) NOT NULL,
 id_borrower INT NOT NULL,
 id_lender INT NOT NULL,
 interest_rate DECIMAL(13,2) NOT NULL CHECK(interest_rate<=100.0 AND interest_rate>=0),
@@ -48,14 +49,15 @@ location VARCHAR(100),
 department VARCHAR(100),
 FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
 );
+
 CREATE TABLE IF NOT EXISTS contractors
 (
 contractor_id INT PRIMARY KEY ,
 
-contractor_name VARCHAR(100) NOT NULL,
+contractor_name VARCHAR(500) NOT NULL,
 dob DATE NOT NULL,
 -- current_project_id INT,
-contactdetails VARCHAR(31000) NOT NULL,
+contactdetails VARCHAR(500) NOT NULL,
 competency_score INT CHECK(competency_score>=0 AND competency_score<=100),
 booked VARCHAR(3) CHECK (booked IN('YES','NO')),
 
@@ -65,6 +67,7 @@ f_customer_id INT ,
 -- FOREIGN KEY(current_project_id) REFERENCES ongoing_projects(ongoing_projects_id)
 FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
 );
+
 
 CREATE TABLE IF NOT EXISTS contractor_competency
 (
@@ -78,6 +81,7 @@ CREATE TABLE IF NOT EXISTS ongoing_projects
 (
 ongoing_project_id INT PRIMARY KEY,
 govt_add_id INT NOT NULL,
+name varchar(300),
 location VARCHAR(200) NOT NULL,
 size DECIMAL(8,3) NOT NULL,
 p_contractor_id INT ,
@@ -86,6 +90,7 @@ completion_percentage DECIMAL(8,2) NOT NULL CHECK(completion_percentage<=100 AND
 FOREIGN KEY (govt_add_id) REFERENCES government(govt_id),
 FOREIGN KEY (p_contractor_id) REFERENCES contractors(contractor_id)
 );
+
 CREATE TABLE IF NOT EXISTS supplies
 (
 project_supplies_id INT PRIMARY KEY,
@@ -100,12 +105,14 @@ CREATE TABLE IF NOT EXISTS Completed_Projects
     completed_project_id INT PRIMARY KEY,
     govt_add_id INT NOT NULL,
     p_contractor_id INT NOT NULL,
+    name varchar(200),
     location VARCHAR(200) NOT NULL,
-    size FLOAT(2) NOT NULL CHECK(size>0.00), 
-    price FLOAT(2) NOT NULL CHECK(price>0.00), /*In crores*/
+    size decimal(13,2) NOT NULL CHECK(size>0.00), 
+    price decimal(13,2) NOT NULL CHECK(price>0.00), /*In crores*/
     FOREIGN KEY (govt_add_id) REFERENCES government(govt_id),
     FOREIGN KEY (p_contractor_id) REFERENCES contractors(contractor_id)
 );
+
 CREATE TABLE IF NOT EXISTS Public
 (
   public_id INT PRIMARY KEY,
@@ -125,3 +132,5 @@ owner_id INT,
 FOREIGN KEY(project_id) REFERENCES Completed_Projects(completed_project_id),
 FOREIGN KEY(owner_id) REFERENCES Public(public_id)
 );
+
+
