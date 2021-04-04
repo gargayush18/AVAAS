@@ -38,9 +38,9 @@ sender VARCHAR(100) NOT NULL,
 receiver VARCHAR(100) NOT NULL,
 sender_id INT NOT NULL,
 receiver_id INT NOT NULL,
-amount DECIMAL(13,2) NOT NULL,
+amount DECIMAL(13,2) NOT NULL
 -- new addition
-foreign key (f_customer_id) references Financial_Customers(f_customer_id)
+
 );
 CREATE TABLE IF NOT EXISTS government
 (
