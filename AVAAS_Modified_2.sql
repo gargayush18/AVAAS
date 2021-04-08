@@ -1,16 +1,5 @@
 CREATE DATABASE IF NOT EXISTS AVAAS2;
 USE AVAAS2;
-CREATE TABLE IF NOT EXISTS Banks 
-(
-  f_institution_id VARCHAR(100) PRIMARY KEY ,
-  name VARCHAR(100) NOT NULL,
-  location VARCHAR(100) NOT NULL,
-  ROI DECIMAL(13,2) CHECK(ROI>=0.0 AND ROI<=100.0),
-  max_loan_amount DECIMAL(13,2) CHECK(max_loan_amount>=0.0 ),
-  max_duration DECIMAL(13,2) CHECK(max_duration >=0.0 ),
-  no_of_installments INT CHECK(no_of_installments>0)
-);
-
 CREATE TABLE IF NOT EXISTS Financial_Customers 
 (
   f_customer_id VARCHAR(100) PRIMARY KEY,
@@ -19,6 +8,29 @@ CREATE TABLE IF NOT EXISTS Financial_Customers
   loans_clear BOOL NOT NULL,
   credibility_score INT CHECK(credibility_score>=0 AND credibility_score<=100)
 );
+CREATE TABLE IF NOT EXISTS Banks 
+(
+  f_institution_id VARCHAR(100) PRIMARY KEY ,
+  f_customer_id VARCHAR(100),
+  name VARCHAR(100) NOT NULL,
+  location VARCHAR(100) NOT NULL,
+  FOREIGN KEY(f_customer_id) REFERENCES Financial_Customers(f_customer_id)
+
+);
+CREATE TABLE IF NOT EXISTS loans_offered 
+(
+  loan_offer_id varchar(100) PRIMARY KEY,
+  f_institution_id VARCHAR(100)  ,
+  ROI DECIMAL(13,2) CHECK(ROI>=0.0 AND ROI<=100.0),
+  max_loan_amount DECIMAL(13,2) CHECK(max_loan_amount>=0.0 ),
+  max_duration DECIMAL(13,2) CHECK(max_duration >=0.0 ),
+  no_of_installments INT CHECK(no_of_installments>0),
+  loan_type VARCHAR(100) check(loan_type in ('public','contractor')),
+  foreign key (f_institution_id) references Banks(f_institution_id)
+);
+
+
+
 
 CREATE TABLE IF NOT EXISTS Loans
 (
@@ -209,19 +221,21 @@ p_contractor_id varchar(100) NOT NULL,
 ongoing_project_id varchar(100) NOT NULL,
 application_status VARCHAR(50) CHECK(application_status IN ('Assigned','Not assigned', 'Under review')),
 application_time datetime not null,
+bid_value decimal(13,2) not null check(bid_value>=0),
 FOREIGN KEY (p_contractor_id) REFERENCES Contractors(contractor_id),
 FOREIGN KEY (ongoing_project_id) REFERENCES ongoing_projects(ongoing_project_id),
 primary key(p_contractor_id, ongoing_project_id)
 );
-CREATE TABLE IF NOT EXISTS loan_applicants
-(
-f_customer_id varchar(100) NOT NULL,
-bank_id varchar(100) NOT NULL,
-application_status VARCHAR(50) CHECK(application_status IN ('Sanctioned','Not sanctioned', 'Under review')),
-application_time datetime not null,
-FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id),
-FOREIGN KEY(bank_id) REFERENCES Banks(f_institution_id),
-primary key(f_customer_id, bank_id)
+CREATE TABLE IF NOT EXISTS loan_applicants (
+    loan_id VARCHAR(100) NOT NULL,
+    f_customer_id VARCHAR(100) NOT NULL,
+    application_status VARCHAR(50) CHECK (application_status IN ('Sanctioned' , 'Not sanctioned', 'Under review')),
+    application_time DATETIME NOT NULL,
+    FOREIGN KEY (f_customer_id)
+        REFERENCES Financial_Customers (f_customer_id),
+    FOREIGN KEY (loan_id)
+        REFERENCES loans_offered (loan_offer_id),
+    PRIMARY KEY (loan_id , f_customer_id)
 );
 CREATE TABLE IF NOT EXISTS login_details
 (
