@@ -1,0 +1,10 @@
+adding a loan type , whether it is for contractor or genral public 
+we should remove status of loan from the query of the public 
+
+// finanacial instituions ka kya ar sakte hain: 
+
+it can check the list of Borroweres (Contractor)
+it can check the list of Borroweres (Public)
+it can check the credibility score of the Borroweres
+it can check the pending loan payments
+ 

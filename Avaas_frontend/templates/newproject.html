@@ -1,0 +1,68 @@
+<html>
+<head>
+    <h1> Add a new project </h1>
+
+
+</head>
+
+
+<body>
+ 
+    <form action="/newproject" method="POST"  >
+        
+        <label >EnterProject name :</label>
+        <input type="text"  name="project_name"  ><br><br>
+        
+
+
+        <label >Enter project area :</label>
+        <select name="loaction_area" >
+            <option value="Agra">Agra</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Bombay">Bombay</option>
+            <option value="Fazilka">Fazilka</option>
+          </select><br><br>
+
+          <label >EnterProject Details :</label>
+          <textarea rows = "5" cols = "60" name = "description">
+            Enter details here...
+         </textarea><br><br><br><br><br>
+
+
+         <h2>Other Requirements</h2>
+          <label >Expected Completion Time :</label>
+          <input type="date"  name="project_details"  ><br><br>
+
+
+          <label >MinimumExperience :</label>
+          <input type="text"  name="experience"  ><br><br>
+
+          <label >Minimum Cost Handled:</label>
+          <input type="text"  name="cost_handled"  ><br><br>
+
+          <label >Pre workforce needed:</label>
+          <select name="workforce" >
+           
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select><br><br>
+
+
+          <input type="submit"  name = "submit_button" value ="finalisedetails">
+
+
+
+
+
+          
+
+
+        
+        
+      </form> 
+    
+    
+
+</body>
+
+</html>
