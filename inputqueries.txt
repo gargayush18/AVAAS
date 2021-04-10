@@ -290,3 +290,47 @@ INSERT INTO loans_offered VALUES('L49','BNK0019',13.0,1450000.0,7.0,15.0,'public
 INSERT INTO loans_offered VALUES('L50','BNK0019',17.0,8700000.0,18.0,36.0,'contractor');
 INSERT INTO loans_offered VALUES('L51','BNK0020',15.0,4450000.0,6.0,19.0,'public');
 INSERT INTO loans_offered VALUES('L52','BNK0020',19.0,4600000.0,19.0,35.0,'contractor');
+
+
+
+
+INSERT INTO ongoing_projects VALUES('ONGP001',null,'GOVT006','Godrej Prime','AGRA',28,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP002',null,'GOVT002','Merlin X','DAYAL BAGH',20,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP003',null,'GOVT004','Godrej Golf Link Villas','AGRA',32,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP004',null,'GOVT001','Salarpuria Satva Signet','CHITAURA',30,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP005',null,'GOVT006','Wadhwa Dukes Horizon','AGRA',32,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP006',null,'GOVT007','Shilp Revanta','FATEHABAD',34,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP007',null,'GOVT001','TVS Peninsula','HOLIPURA',23,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP008',null,'GOVT001','Southern Vista','KALAL KHERIA',30,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP009',null,'GOVT006','New Kolkata Sangam','BEHTAGOKUL',23,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0010',null,'GOVT001','Kaveri Soham Vivanta','MADHOGANJ',29,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0011',null,'GOVT005','Casagrand Athens','SURSA',21,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0012',null,'GOVT007','Brigade Citadel','HARPALPUR',36,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0013',null,'GOVT004','Sushma Appartments','HARDOI',35,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0014',null,'GOVT005','Adarsh Green','RENGAI',35,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0015',null,'GOVT004','Ozone Southend','HARPALPUR',23,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0016',null,'GOVT003','Purti Veda','AGRA',32,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0017',null,'GOVT005','Ashoka Spire','AGRA',33,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0018',null,'GOVT006','Aditya Appartments','AGRA',38,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0019',null,'GOVT003','Godrej Retreat','MADHOGANJ',21,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0020',null,'GOVT001','Swati Parkside','SURSA',29,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0021',null,'GOVT007','Citylights Real Estate','Bombay',32,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0022',null,'GOVT001','Nest Scout Realty','Bangalore',31,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0023',null,'GOVT004','Mortgage Genies','Delhi',31,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0024',null,'GOVT005','Homesphere Realtors','fazilka',37,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0025',null,'GOVT005','Star Island Realtors','Ludhiana',23,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0026',null,'GOVT004','Banyon Tree Realty','Mathura',37,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0027',null,'GOVT004','Brick Lane Realty','Delhi',38,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0028',null,'GOVT004','Cobblestone Realty Partners','AGRA',28,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0029',null,'GOVT003','Pagoda Realty','MADHOGANJ',21,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0030',null,'GOVT007','Herringbone Realty','SURSA',26,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0031',null,'GOVT003','Nova Real Estate','Bombay',22,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0032',null,'GOVT004','The Real Estate Corner','Bangalore',35,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0033',null,'GOVT007','Fairmount Properties','Delhi',21,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0034',null,'GOVT001','Urban Nest Realty','fazilka',36,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0035',null,'GOVT005','Red Carpet Real Estate','Ludhiana',39,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0036',null,'GOVT003','Genesis Properties','Mathura',29,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0037',null,'GOVT004','Red Door Realtors','Delhi',34,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0038',null,'GOVT003','Bungalow Realty','SURSA',26,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0039',null,'GOVT005','Sand and Sea Realty','Bombay',40,'NO',0 );
+INSERT INTO ongoing_projects VALUES('ONGP0040',null,'GOVT001','Turnkey Properties','Bangalore',22,'NO',0 );

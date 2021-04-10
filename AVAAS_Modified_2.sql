@@ -106,11 +106,12 @@ FOREIGN KEY(c_competency_id) REFERENCES Contractors(contractor_id)
 CREATE TABLE IF NOT EXISTS ongoing_projects
 (
 ongoing_project_id varchar(100) PRIMARY KEY,
+
+p_contractor_id varchar(100) ,
 govt_add_id varchar(100) NOT NULL,
 name varchar(300),
 location VARCHAR(200) NOT NULL,
 size DECIMAL(8,3) NOT NULL,
-p_contractor_id varchar(100) ,
 assigned VARCHAR(3) NOT NULL CHECK (assigned IN('YES','NO')),
 completion_percentage DECIMAL(8,2) NOT NULL CHECK(completion_percentage<=100 AND completion_percentage>=0),
 FOREIGN KEY (govt_add_id) REFERENCES Government(govt_id),
@@ -123,6 +124,18 @@ construction_material INT NOT NULL,
 labour int ,
 engineers int,  
 FOREIGN KEY (project_supplies_id) REFERENCES ongoing_projects(ongoing_project_id)
+);
+
+CREATE TABLE IF NOT EXISTS project_requirements
+(
+project_req_id varchar(100) PRIMARY KEY,
+min_exp INT NOT NULL,
+preworkforce_needed  varchar(3) check(preworkforce_needed in('YES','NO')), 
+min_cost_handled int, 
+no_of_projects int , 
+
+
+FOREIGN KEY (project_req_id) REFERENCES ongoing_projects(ongoing_project_id)
 );
 CREATE TABLE IF NOT EXISTS Completed_Projects 
 (
@@ -244,3 +257,5 @@ CREATE TABLE IF NOT EXISTS login_details
 user_id varchar(100) primary key,
 user_password varchar(100) not null
 );
+
+
