@@ -211,3 +211,25 @@ INSERT INTO contractors VALUES('Cont0028','M/S MKC Infrastructure Ltd.MKC House,
 INSERT INTO contractors VALUES('Cont0029','M/S D.Thakkar Constructions Pvt Ltd 103, Prince Tower, L.B.S.Marg,Ghatkopar (W)Mumbai-440086','1953-01-21 ','Phone :- 022-25161946, 25124255 Fax :- 022- 25115921 Email :- info.nagpur@dthakkar.net',37,'NO',9432775868,'FICT0029');
 INSERT INTO contractors VALUES('Cont0030','M/s Jain Infraprojects Limited5th Floor, Premlata, 39, Shakespeare Sarani, Kolkatta-700017','1966-06-19 ','Phone :- 033-40027777 Fax :- 033-40027744 Email :- info@jaingroup.co.in',60,'NO',9887023268,'FICT0030');
 INSERT INTO contractors VALUES('Cont0031','M/s East Coast Constructions & Industries LimitedHO : #4, Buhari Buildings, Moores Road, Chennai-600006 (Tamilnadu)','1979-12-18 ','Phone :- 044-28272789, 28207363 Fax :- 044-28261274 Email :- reddy@ecciltd.com',3,'NO',9025312718,'FICT0031');
+
+
+INSERT INTO Banks VALUES('BNK001','FICT0032','Allahabad Bank','AGRA');
+INSERT INTO Banks VALUES('BNK002','FICT0033','Axis Bank','DAYAL BAGH');
+INSERT INTO Banks VALUES('BNK003','FICT0034','Bank of India','AGRA');
+INSERT INTO Banks VALUES('BNK004','FICT0035','Catholic Syrian Bank Ltd.','CHITAURA');
+INSERT INTO Banks VALUES('BNK005','FICT0036','City Union Bank','AGRA');
+INSERT INTO Banks VALUES('BNK006','FICT0037','Dena Bank','FATEHABAD');
+INSERT INTO Banks VALUES('BNK007','FICT0038','DBS Bank','HOLIPURA');
+INSERT INTO Banks VALUES('BNK008','FICT0039','HSBC Bank','KALAL KHERIA');
+INSERT INTO Banks VALUES('BNK009','FICT0040','American Express','BEHTAGOKUL');
+INSERT INTO Banks VALUES('BNK0010','FICT0041','Bandhan Bank','MADHOGANJ');
+INSERT INTO Banks VALUES('BNK0011','FICT0042','Bank of Maharashtra','SURSA');
+INSERT INTO Banks VALUES('BNK0012','FICT0043','Central Bank of India','HARPALPUR');
+INSERT INTO Banks VALUES('BNK0013','FICT0044','Corporation Bank','HARDOI');
+INSERT INTO Banks VALUES('BNK0014','FICT0045','Deutsche Bank','RENGAI');
+INSERT INTO Banks VALUES('BNK0015','FICT0046','Federal Bank','HARPALPUR');
+INSERT INTO Banks VALUES('BNK0016','FICT0047','ICICI Bank','AGRA');
+INSERT INTO Banks VALUES('BNK0017','FICT0048','Andhra Bank','AGRA');
+INSERT INTO Banks VALUES('BNK0018','FICT0049','Bank of Baroda','AGRA');
+INSERT INTO Banks VALUES('BNK0019','FICT0050','Canara Bank','MADHOGANJ');
+INSERT INTO Banks VALUES('BNK0020','FICT0051','Citibank','SURSA');
