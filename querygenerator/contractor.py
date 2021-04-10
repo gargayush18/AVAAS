@@ -11,6 +11,7 @@ import openpyxl
 
 path = "contractor.xlsx"
 wb_obj = openpyxl.load_workbook(path) 
+import random ; 
   
 sheet_obj = wb_obj.active 
 

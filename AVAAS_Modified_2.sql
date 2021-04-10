@@ -3,10 +3,10 @@ USE AVAAS2;
 CREATE TABLE IF NOT EXISTS Financial_Customers 
 (
   f_customer_id VARCHAR(100) PRIMARY KEY,
-  name VARCHAR(100) NOT NULL,
-  category VARCHAR(50) NOT NULL CHECK( category IN('government','public','contractor','bank')),
+  name VARCHAR(500) NOT NULL,
+  category VARCHAR(50) NOT NULL CHECK( category IN('govt','public','contractor','bank')),
   loans_clear BOOL NOT NULL,
-  credibility_score INT CHECK(credibility_score>=0 AND credibility_score<=100)
+  credibility_score INT CHECK(credibility_score>=-2 AND credibility_score<=100)
 );
 CREATE TABLE IF NOT EXISTS Banks 
 (
@@ -91,7 +91,7 @@ dob DATE NOT NULL,
 contactdetails VARCHAR(500) NOT NULL,
 competency_score INT CHECK(competency_score>=0 AND competency_score<=100),
 booked VARCHAR(3) CHECK (booked IN('YES','NO')),
-phone_number INT  CHECK(phone_number>999999),
+phone_number bigint  CHECK(phone_number>999999),
 f_customer_id varchar(100) ,
 FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
 );
@@ -140,8 +140,10 @@ CREATE TABLE IF NOT EXISTS Completed_Projects
 CREATE TABLE IF NOT EXISTS Public
 (
   public_id varchar(100) PRIMARY KEY,
+  f_customer_id varchar(100),
   name VARCHAR(200) NOT NULL,
-   f_customer_id varchar(100),
+  location varchar(100) NOT NULL,
+   
    competence_score INT ,
    FOREIGN KEY (f_customer_id) REFERENCES Financial_Customers(f_customer_id)
 );
