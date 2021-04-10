@@ -1,2 +1,3 @@
 # AVAAS
-TEAM DBMS PRoject
+TEAM DBMS Project
+
