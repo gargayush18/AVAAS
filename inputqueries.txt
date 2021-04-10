@@ -334,3 +334,82 @@ INSERT INTO ongoing_projects VALUES('ONGP0037',null,'GOVT004','Red Door Realtors
 INSERT INTO ongoing_projects VALUES('ONGP0038',null,'GOVT003','Bungalow Realty','SURSA',26,'NO',0 );
 INSERT INTO ongoing_projects VALUES('ONGP0039',null,'GOVT005','Sand and Sea Realty','Bombay',40,'NO',0 );
 INSERT INTO ongoing_projects VALUES('ONGP0040',null,'GOVT001','Turnkey Properties','Bangalore',22,'NO',0 );
+
+INSERT INTO contractor_competency VALUES('Cont001',13,12,'YES');
+INSERT INTO contractor_competency VALUES('Cont002',9,22,'YES');
+INSERT INTO contractor_competency VALUES('Cont003',5,29,'NO');
+INSERT INTO contractor_competency VALUES('Cont004',16,26,'YES');
+INSERT INTO contractor_competency VALUES('Cont005',15,25,'YES');
+INSERT INTO contractor_competency VALUES('Cont006',10,39,'NO');
+INSERT INTO contractor_competency VALUES('Cont007',11,35,'YES');
+INSERT INTO contractor_competency VALUES('Cont008',5,22,'NO');
+INSERT INTO contractor_competency VALUES('Cont009',7,10,'YES');
+INSERT INTO contractor_competency VALUES('Cont0010',7,31,'YES');
+INSERT INTO contractor_competency VALUES('Cont0011',7,16,'NO');
+INSERT INTO contractor_competency VALUES('Cont0012',17,23,'YES');
+INSERT INTO contractor_competency VALUES('Cont0013',10,23,'NO');
+INSERT INTO contractor_competency VALUES('Cont0014',20,11,'YES');
+INSERT INTO contractor_competency VALUES('Cont0015',11,39,'NO');
+INSERT INTO contractor_competency VALUES('Cont0016',14,26,'NO');
+INSERT INTO contractor_competency VALUES('Cont0017',5,10,'NO');
+INSERT INTO contractor_competency VALUES('Cont0018',19,20,'NO');
+INSERT INTO contractor_competency VALUES('Cont0019',15,20,'NO');
+INSERT INTO contractor_competency VALUES('Cont0020',11,12,'NO');
+INSERT INTO contractor_competency VALUES('Cont0021',16,24,'YES');
+INSERT INTO contractor_competency VALUES('Cont0022',18,18,'YES');
+INSERT INTO contractor_competency VALUES('Cont0023',10,30,'YES');
+INSERT INTO contractor_competency VALUES('Cont0024',13,25,'NO');
+INSERT INTO contractor_competency VALUES('Cont0025',19,14,'YES');
+INSERT INTO contractor_competency VALUES('Cont0026',7,31,'NO');
+INSERT INTO contractor_competency VALUES('Cont0027',18,24,'YES');
+INSERT INTO contractor_competency VALUES('Cont0028',9,32,'YES');
+INSERT INTO contractor_competency VALUES('Cont0029',11,12,'YES');
+INSERT INTO contractor_competency VALUES('Cont0030',10,40,'YES');
+INSERT INTO contractor_competency VALUES('Cont0031',15,11,'NO');
+
+
+
+
+
+
+
+INSERT INTO project_requirements VALUES('ONGP001',17,'YES',53,31);
+INSERT INTO project_requirements VALUES('ONGP002',20,'NO',171,13);
+INSERT INTO project_requirements VALUES('ONGP003',14,'NO',200,40);
+INSERT INTO project_requirements VALUES('ONGP004',12,'NO',95,10);
+INSERT INTO project_requirements VALUES('ONGP005',16,'YES',84,28);
+INSERT INTO project_requirements VALUES('ONGP006',5,'YES',138,18);
+INSERT INTO project_requirements VALUES('ONGP007',15,'YES',156,10);
+INSERT INTO project_requirements VALUES('ONGP008',15,'NO',171,13);
+INSERT INTO project_requirements VALUES('ONGP009',17,'NO',139,39);
+INSERT INTO project_requirements VALUES('ONGP0010',5,'NO',95,12);
+INSERT INTO project_requirements VALUES('ONGP0011',20,'YES',132,33);
+INSERT INTO project_requirements VALUES('ONGP0012',9,'YES',155,28);
+INSERT INTO project_requirements VALUES('ONGP0013',13,'YES',120,22);
+INSERT INTO project_requirements VALUES('ONGP0014',8,'YES',153,23);
+INSERT INTO project_requirements VALUES('ONGP0015',10,'NO',110,15);
+INSERT INTO project_requirements VALUES('ONGP0016',18,'NO',174,35);
+INSERT INTO project_requirements VALUES('ONGP0017',9,'YES',122,13);
+INSERT INTO project_requirements VALUES('ONGP0018',14,'YES',160,10);
+INSERT INTO project_requirements VALUES('ONGP0019',7,'YES',65,28);
+INSERT INTO project_requirements VALUES('ONGP0020',16,'YES',81,20);
+INSERT INTO project_requirements VALUES('ONGP0021',19,'YES',155,36);
+INSERT INTO project_requirements VALUES('ONGP0022',13,'YES',119,39);
+INSERT INTO project_requirements VALUES('ONGP0023',10,'NO',145,17);
+INSERT INTO project_requirements VALUES('ONGP0024',10,'YES',169,39);
+INSERT INTO project_requirements VALUES('ONGP0025',8,'NO',162,21);
+INSERT INTO project_requirements VALUES('ONGP0026',15,'NO',56,29);
+INSERT INTO project_requirements VALUES('ONGP0027',18,'YES',107,37);
+INSERT INTO project_requirements VALUES('ONGP0028',13,'YES',157,35);
+INSERT INTO project_requirements VALUES('ONGP0029',5,'NO',58,10);
+INSERT INTO project_requirements VALUES('ONGP0030',9,'YES',105,16);
+INSERT INTO project_requirements VALUES('ONGP0031',8,'NO',106,35);
+INSERT INTO project_requirements VALUES('ONGP0032',17,'NO',158,36);
+INSERT INTO project_requirements VALUES('ONGP0033',12,'YES',96,40);
+INSERT INTO project_requirements VALUES('ONGP0034',13,'NO',112,37);
+INSERT INTO project_requirements VALUES('ONGP0035',13,'YES',167,28);
+INSERT INTO project_requirements VALUES('ONGP0036',20,'YES',94,32);
+INSERT INTO project_requirements VALUES('ONGP0037',9,'NO',61,18);
+INSERT INTO project_requirements VALUES('ONGP0038',11,'YES',178,33);
+INSERT INTO project_requirements VALUES('ONGP0039',8,'NO',181,16);
+INSERT INTO project_requirements VALUES('ONGP0040',5,'YES',191,30);
