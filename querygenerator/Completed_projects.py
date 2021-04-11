@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
   
 # Loop will print all columns name 
 
-path = "ongoing_projects1.xlsx"
+path = "Completed_Projetcs.xlsx"
 wb_obj = openpyxl.load_workbook(path) 
   
 sheet_obj = wb_obj.active 
