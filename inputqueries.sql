@@ -449,7 +449,7 @@ INSERT INTO Completed_Projects VALUES('CP0028', 'GOVT001', 'Cont002', 'T and T E
 INSERT INTO Completed_Projects VALUES('CP0029', 'GOVT006', 'Cont0028', 'ACE Parkway', '2020-09-13', 'MADHOGANJ', 33, 66.98);
 INSERT INTO Completed_Projects VALUES('CP0030', 'GOVT002', 'Cont0027', 'Mahagun Mezzaria Realty', '2020-12-09', 'SURSA', 52, 81.23);
 INSERT INTO Completed_Projects VALUES('CP0031', 'GOVT004', 'Cont001', 'Parx Laureate', '2020-07-27', 'Bombay', 25, 56.75);
-INSERT INTO Completed_Projects VALUES('CP0032 AND  ', 'GOVT001', 'Cont0014', 'Land craft Golflinks', '2020-04-29', 'Bangalore', 60, 54.26);
+INSERT INTO Completed_Projects VALUES('CP0032', 'GOVT001', 'Cont0014', 'Land craft Golflinks', '2020-04-29', 'Bangalore', 60, 54.26);
 INSERT INTO Completed_Projects VALUES('CP0033', 'GOVT002', 'Cont0026', 'Chintels Serenity Realty', '2020-05-08', 'Delhi', 25, 148.27);
 INSERT INTO Completed_Projects VALUES('CP0034', 'GOVT003', 'Cont0018', 'DLF The Ultima', '2020-03-27', 'fazilka', 34, 75.7);
 INSERT INTO Completed_Projects VALUES('CP0035', 'GOVT006', 'Cont0028', 'Sikka Kaamna Greens', '2020-10-20', 'Ludhiana', 46, 79.31);
