@@ -465,3 +465,10 @@ UPDATE `AVAAS2`.`ongoing_projects` SET `p_contractor_id` = 'Cont004', `assigned`
 UPDATE `AVAAS2`.`ongoing_projects` SET `p_contractor_id` = 'Cont0030', `assigned` = 'YES', `completion_percentage` = '25.45' WHERE (`ongoing_project_id` = 'ONGP0012');
 UPDATE `AVAAS2`.`ongoing_projects` SET `p_contractor_id` = 'Cont0011', `assigned` = 'YES', `completion_percentage` = '15.25' WHERE (`ongoing_project_id` = 'ONGP0010');
 UPDATE `AVAAS2`.`ongoing_projects` SET `p_contractor_id` = 'Cont0015', `assigned` = 'YES', `completion_percentage` = '18.48' WHERE (`ongoing_project_id` = 'ONGP0015');
+
+
+insert into project_applicants values('Cont0016','ONGP0020','Under review','2021-04-01 17:56:24',56.63);
+insert into project_applicants values('Cont0017','ONGP0021','Under review','2021-03-09 12:36:39',66.72);
+insert into project_applicants values('Cont0018','ONGP0025','Not assigned','2020-09-12 10:25:55',89.63);
+insert into project_applicants values('Cont0019','ONGP0022','Under review','2021-02-18 14:32:12',86.45);
+insert into project_applicants values('Cont0020','ONGP0023','Not assigned','2020-12-30 18:20:45',67.34);
