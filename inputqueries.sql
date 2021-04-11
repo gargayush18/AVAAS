@@ -449,7 +449,7 @@ INSERT INTO Completed_Projects VALUES('CP0028', 'GOVT001', 'Cont002', 'T and T E
 INSERT INTO Completed_Projects VALUES('CP0029', 'GOVT006', 'Cont0028', 'ACE Parkway', '2020-09-13', 'MADHOGANJ', 33, 66.98);
 INSERT INTO Completed_Projects VALUES('CP0030', 'GOVT002', 'Cont0027', 'Mahagun Mezzaria Realty', '2020-12-09', 'SURSA', 52, 81.23);
 INSERT INTO Completed_Projects VALUES('CP0031', 'GOVT004', 'Cont001', 'Parx Laureate', '2020-07-27', 'Bombay', 25, 56.75);
-INSERT INTO Completed_Projects VALUES('CP0032', 'GOVT001', 'Cont0014', 'Landcraft Golflinks', '2020-04-29', 'Bangalore', 60, 54.26);
+INSERT INTO Completed_Projects VALUES('CP0032 AND  ', 'GOVT001', 'Cont0014', 'Land craft Golflinks', '2020-04-29', 'Bangalore', 60, 54.26);
 INSERT INTO Completed_Projects VALUES('CP0033', 'GOVT002', 'Cont0026', 'Chintels Serenity Realty', '2020-05-08', 'Delhi', 25, 148.27);
 INSERT INTO Completed_Projects VALUES('CP0034', 'GOVT003', 'Cont0018', 'DLF The Ultima', '2020-03-27', 'fazilka', 34, 75.7);
 INSERT INTO Completed_Projects VALUES('CP0035', 'GOVT006', 'Cont0028', 'Sikka Kaamna Greens', '2020-10-20', 'Ludhiana', 46, 79.31);
@@ -1041,3 +1041,16 @@ INSERT INTO house_applicants VALUES('PUB0055','CP0020','Under review','2019-8-16
 INSERT INTO house_applicants VALUES('PUB0056','CP0029','Under review','2019-7-28');
 INSERT INTO house_applicants VALUES('PUB0057','CP0027','Under review','2021-9-2');
 
+
+
+    UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB001', `assigned` = 'YES' WHERE (`project_id` = 'CP0032' AND `house_id` = 'HP001' );
+    UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB002', `assigned` = 'YES' WHERE (`project_id` = 'CP0033' AND `house_id` = 'HP001' );
+    UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB003', `assigned` = 'YES' WHERE (`project_id` = 'CP0034' AND `house_id` = 'HP001' );
+    UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB004', `assigned` = 'YES' WHERE (`project_id` = 'CP0035'AND `house_id` = 'HP001' );
+    UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB005', `assigned` = 'YES' WHERE (`project_id` = 'CP0036'AND `house_id` = 'HP001' );
+
+    UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB006', `assigned` = 'YES' WHERE (`project_id` = 'CP001' AND `house_id` = 'HP001' );
+    UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB007', `assigned` = 'YES' WHERE (`project_id` = 'CP002'AND `house_id` = 'HP001' );
+    UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB008', `assigned` = 'YES' WHERE (`project_id` = 'CP003' AND `house_id` = 'HP001' );
+    UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB009', `assigned` = 'YES' WHERE (`project_id` = 'CP0035' AND `house_id` = 'HP002' );
+    UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB0010', `assigned` = 'YES' WHERE (`project_id` = 'CP0036' AND `house_id` = 'HP002' );
