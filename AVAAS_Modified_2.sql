@@ -225,7 +225,7 @@ CREATE TABLE IF NOT EXISTS house_applicants
 public_id varchar(100) NOT NULL,
 completed_project_id varchar(100) NOT NULL,
 application_status VARCHAR(50) CHECK(application_status IN ('Alloted','Not alloted', 'Under review')),
-application_time datetime not null,
+application_time date not null,
 FOREIGN KEY (public_id) REFERENCES Public(public_id),
 FOREIGN KEY (completed_project_id) REFERENCES Completed_Projects(completed_project_id),
 primary key(public_id,completed_project_id)
