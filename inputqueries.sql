@@ -675,6 +675,22 @@ INSERT INTO project_applicants VALUES('Cont0022','ONGP0011','Under review','2019
 INSERT INTO project_applicants VALUES('Cont002','ONGP0011','Under review','2020-05-14 15:17:23',57.78);
 INSERT INTO project_applicants VALUES('Cont0017','ONGP0011','Under review','2021-01-27 14:55:55',49.73)
 
+INSERT INTO project_applicants VALUES('Cont005','ONGP0014','Assigned','2021-05-29 23:39:36',26.14);
+INSERT INTO project_applicants VALUES('Cont0026','ONGP0014','Not assigned','2021-06-19 23:29:36',36.18);
+INSERT INTO project_applicants VALUES('Cont009','ONGP0014','Not assigned','2021-04-21 13:39:26',46.24);
+INSERT INTO project_applicants VALUES('Cont004','ONGP0013','Assigned','2021-04-19 23:39:36',26.14);
+INSERT INTO project_applicants VALUES('Cont002','ONGP0013','Not assigned','2021-06-19 13:29:36',56.18);
+INSERT INTO project_applicants VALUES('Cont007','ONGP0013','Not assigned','2021-07-11 16:19:56',46.64);
+INSERT INTO project_applicants VALUES('Cont0030','ONGP0012','Assigned','2021-02-22 03:49:16',26.54);
+INSERT INTO project_applicants VALUES('Cont001','ONGP0012','Not assigned','2020-11-19 23:29:36',36.17);
+INSERT INTO project_applicants VALUES('Cont003','ONGP0012','Not assigned','2021-03-25 15:29:16',66.14);
+INSERT INTO project_applicants VALUES('Cont0011','ONGP0010','Assigned','2021-02-19 23:39:36',36.15);
+INSERT INTO project_applicants VALUES('Cont0026','ONGP0010','Not assigned','2021-06-29 13:29:36',56.98);
+INSERT INTO project_applicants VALUES('Cont008','ONGP0010','Not assigned','2021-05-11 17:36:46',66.14);
+INSERT INTO project_applicants VALUES('Cont0015','ONGP0015','Assigned','2021-12-09 13:39:47',56.16);
+INSERT INTO project_applicants VALUES('Cont0028','ONGP0015','Not assigned','2021-05-10 12:25:16',66.58);
+INSERT INTO project_applicants VALUES('Cont0029','ONGP0015','Not assigned','2021-03-20 14:33:19',77.34);
+
 
 INSERT INTO public_competence VALUES('PUB001','A',2,'YES');
 INSERT INTO public_competence VALUES('PUB002','B',1,'YES');
