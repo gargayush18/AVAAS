@@ -11,14 +11,14 @@ from datetime import datetime, timedelta
   
 # Loop will print all columns name 
 
-path = "ongoing_projects.xlsx"
+path = "ongoing_projects1.xlsx"
 wb_obj = openpyxl.load_workbook(path) 
   
 sheet_obj = wb_obj.active 
 
 
 
-
+#INSERT INTO ongoing_projects VALUES('CP001', 'GOVT006', null, 'Godrej Prime', '2020-02-25', 'AGRA', 28, 123.56);
 
 
 
@@ -29,13 +29,12 @@ xx=1 ;
 for i in range(1,41):
 	ans1=""
 	ans2=""
-	ans3=0
-	ans4=""
+	
 
 	date='2020'+"-"+str(random.randint(1,12))+"-"+str(random.randint(1,30))
 	lol= round(random.uniform(50.00, 150.00),2)
 
-	for j in range(1,5):
+	for j in range(1,3):
 		a = sheet_obj.cell(row = i, column = j).value
 
 		if(j==1):
@@ -44,16 +43,12 @@ for i in range(1,41):
 		if(j==2):
 			ans2=a
 		
-		if(j==3):
-			ans3=int(a)
 		
-		if(j==4):
-			ans4=a
 		
 		
 		
 	
-	mainans+="INSERT INTO Completed_Projects VALUES('CP00"+str(xx)+"', '"+ans4+"', null, '"+ans1+"', '"+date+"', '"+ans2+"', "+str(ans3)+", "+str(lol)+");\n"
+	mainans+="INSERT INTO Completed_Projects VALUES('CP00"+str(xx)+"', 'GOVT00"+str(random.randint(1,6))+"', 'Cont00"+str(random.randint(1,31))+"', '"+ans1+"', '"+date+"', '"+ans2+"', "+str(random.randint(25,60))+", "+str(lol)+");\n"
 	xx+=1
 
 
