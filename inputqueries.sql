@@ -615,14 +615,15 @@ UPDATE `AVAAS2`.`ongoing_projects` SET `p_contractor_id` = 'Cont0030', `assigned
 UPDATE `AVAAS2`.`ongoing_projects` SET `p_contractor_id` = 'Cont0011', `assigned` = 'YES', `completion_percentage` = '15.25' WHERE (`ongoing_project_id` = 'ONGP0010');
 UPDATE `AVAAS2`.`ongoing_projects` SET `p_contractor_id` = 'Cont0015', `assigned` = 'YES', `completion_percentage` = '18.48' WHERE (`ongoing_project_id` = 'ONGP0015');
 
+-- supplies for ongoing projects
+INSERT INTO supplies VALUES('ONGP0014', 3, 2, 1);
+INSERT INTO supplies VALUES('ONGP0013', 4, 5, 8);
+INSERT INTO supplies VALUES('ONGP0012', 3, 4, 6);
+INSERT INTO supplies VALUES('ONGP0010', 2, 5, 6);
+INSERT INTO supplies VALUES('ONGP0015', 5, 7, 9);
 
-insert into project_applicants values('Cont0016','ONGP0020','Under review','2021-04-01 17:56:24',56.63);
-insert into project_applicants values('Cont0017','ONGP0021','Under review','2021-03-09 12:36:39',66.72);
-insert into project_applicants values('Cont0018','ONGP0025','Not assigned','2020-09-12 10:25:55',89.63);
-insert into project_applicants values('Cont0019','ONGP0022','Under review','2021-02-18 14:32:12',86.45);
-insert into project_applicants values('Cont0020','ONGP0023','Not assigned','2020-12-30 18:20:45',67.34);
 
--- more values for project applicants
+-- values for project applicants table
 INSERT INTO project_applicants VALUES('Cont009','ONGP001','Under review','2021-05-29 23:39:36',16.14);
 INSERT INTO project_applicants VALUES('Cont0028','ONGP001','Under review','2021-03-12 17:22:51',80.01);
 INSERT INTO project_applicants VALUES('Cont0022','ONGP001','Under review','2019-09-20 18:10:12',60.75);
