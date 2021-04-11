@@ -413,3 +413,47 @@ INSERT INTO project_requirements VALUES('ONGP0037',9,'NO',61,18);
 INSERT INTO project_requirements VALUES('ONGP0038',11,'YES',178,33);
 INSERT INTO project_requirements VALUES('ONGP0039',8,'NO',181,16);
 INSERT INTO project_requirements VALUES('ONGP0040',5,'YES',191,30);
+
+
+
+INSERT INTO Completed_Projects VALUES('CP001', 'GOVT006', null, 'Godrej Prime', '2020-4-12', 'AGRA', 28, 75.44);
+INSERT INTO Completed_Projects VALUES('CP002', 'GOVT002', null, 'Merlin X', '2020-8-2', 'DAYAL BAGH', 20, 95.29);
+INSERT INTO Completed_Projects VALUES('CP003', 'GOVT004', null, 'Godrej Golf Link Villas', '2020-7-15', 'AGRA', 32, 125.68);
+INSERT INTO Completed_Projects VALUES('CP004', 'GOVT001', null, 'Salarpuria Satva Signet', '2020-3-26', 'CHITAURA', 30, 144.41);
+INSERT INTO Completed_Projects VALUES('CP005', 'GOVT006', null, 'Wadhwa Dukes Horizon', '2020-1-7', 'AGRA', 32, 50.09);
+INSERT INTO Completed_Projects VALUES('CP006', 'GOVT007', null, 'Shilp Revanta', '2020-11-11', 'FATEHABAD', 34, 73.11);
+INSERT INTO Completed_Projects VALUES('CP007', 'GOVT001', null, 'TVS Peninsula', '2020-5-6', 'HOLIPURA', 23, 75.72);
+INSERT INTO Completed_Projects VALUES('CP008', 'GOVT001', null, 'Southern Vista', '2020-7-27', 'KALAL KHERIA', 30, 108.76);
+INSERT INTO Completed_Projects VALUES('CP009', 'GOVT006', null, 'New Kolkata Sangam', '2020-10-20', 'BEHTAGOKUL', 23, 58.94);
+INSERT INTO Completed_Projects VALUES('CP0010', 'GOVT001', null, 'Kaveri Soham Vivanta', '2020-10-27', 'MADHOGANJ', 29, 55.92);
+INSERT INTO Completed_Projects VALUES('CP0011', 'GOVT005', null, 'Casagrand Athens', '2020-5-29', 'SURSA', 21, 120.8);
+INSERT INTO Completed_Projects VALUES('CP0012', 'GOVT007', null, 'Brigade Citadel', '2020-6-29', 'HARPALPUR', 36, 62.43);
+INSERT INTO Completed_Projects VALUES('CP0013', 'GOVT004', null, 'Sushma Appartments', '2020-2-21', 'HARDOI', 35, 121.0);
+INSERT INTO Completed_Projects VALUES('CP0014', 'GOVT005', null, 'Adarsh Green', '2020-10-2', 'RENGAI', 35, 74.51);
+INSERT INTO Completed_Projects VALUES('CP0015', 'GOVT004', null, 'Ozone Southend', '2020-6-21', 'HARPALPUR', 23, 126.4);
+INSERT INTO Completed_Projects VALUES('CP0016', 'GOVT003', null, 'Purti Veda', '2020-2-16', 'AGRA', 32, 133.43);
+INSERT INTO Completed_Projects VALUES('CP0017', 'GOVT005', null, 'Ashoka Spire', '2020-12-26', 'AGRA', 33, 100.21);
+INSERT INTO Completed_Projects VALUES('CP0018', 'GOVT006', null, 'Aditya Appartments', '2020-6-23', 'AGRA', 38, 93.18);
+INSERT INTO Completed_Projects VALUES('CP0019', 'GOVT003', null, 'Godrej Retreat', '2020-11-3', 'MADHOGANJ', 21, 100.87);
+INSERT INTO Completed_Projects VALUES('CP0020', 'GOVT001', null, 'Swati Parkside', '2020-12-5', 'SURSA', 29, 58.51);
+INSERT INTO Completed_Projects VALUES('CP0021', 'GOVT007', null, 'Citylights Real Estate', '2020-2-20', 'Bombay', 32, 92.34);
+INSERT INTO Completed_Projects VALUES('CP0022', 'GOVT001', null, 'Nest Scout Realty', '2020-3-28', 'Bangalore', 31, 140.55);
+INSERT INTO Completed_Projects VALUES('CP0023', 'GOVT004', null, 'Mortgage Genies', '2020-3-6', 'Delhi', 31, 90.63);
+INSERT INTO Completed_Projects VALUES('CP0024', 'GOVT005', null, 'Homesphere Realtors', '2020-2-14', 'fazilka', 37, 56.53);
+INSERT INTO Completed_Projects VALUES('CP0025', 'GOVT005', null, 'Star Island Realtors', '2020-5-9', 'Ludhiana', 23, 61.35);
+INSERT INTO Completed_Projects VALUES('CP0026', 'GOVT004', null, 'Banyon Tree Realty', '2020-9-5', 'Mathura', 37, 85.15);
+INSERT INTO Completed_Projects VALUES('CP0027', 'GOVT004', null, 'Brick Lane Realty', '2020-12-9', 'Delhi', 38, 76.01);
+INSERT INTO Completed_Projects VALUES('CP0028', 'GOVT004', null, 'Cobblestone Realty Partners', '2020-11-3', 'AGRA', 28, 106.85);
+INSERT INTO Completed_Projects VALUES('CP0029', 'GOVT003', null, 'Pagoda Realty', '2020-8-23', 'MADHOGANJ', 21, 149.77);
+INSERT INTO Completed_Projects VALUES('CP0030', 'GOVT007', null, 'Herringbone Realty', '2020-3-18', 'SURSA', 26, 119.5);
+INSERT INTO Completed_Projects VALUES('CP0031', 'GOVT003', null, 'Nova Real Estate', '2020-3-16', 'Bombay', 22, 103.99);
+INSERT INTO Completed_Projects VALUES('CP0032', 'GOVT004', null, 'The Real Estate Corner', '2020-6-14', 'Bangalore', 35, 61.23);
+INSERT INTO Completed_Projects VALUES('CP0033', 'GOVT007', null, 'Fairmount Properties', '2020-12-22', 'Delhi', 21, 133.8);
+INSERT INTO Completed_Projects VALUES('CP0034', 'GOVT001', null, 'Urban Nest Realty', '2020-1-23', 'fazilka', 36, 114.01);
+INSERT INTO Completed_Projects VALUES('CP0035', 'GOVT005', null, 'Red Carpet Real Estate', '2020-6-28', 'Ludhiana', 39, 71.72);
+INSERT INTO Completed_Projects VALUES('CP0036', 'GOVT003', null, 'Genesis Properties', '2020-5-17', 'Mathura', 29, 74.89);
+INSERT INTO Completed_Projects VALUES('CP0037', 'GOVT004', null, 'Red Door Realtors', '2020-2-1', 'Delhi', 34, 73.64);
+INSERT INTO Completed_Projects VALUES('CP0038', 'GOVT003', null, 'Bungalow Realty', '2020-8-9', 'SURSA', 26, 66.0);
+INSERT INTO Completed_Projects VALUES('CP0039', 'GOVT005', null, 'Sand and Sea Realty', '2020-9-14', 'Bombay', 40, 68.79);
+INSERT INTO Completed_Projects VALUES('CP0040', 'GOVT001', null, 'Turnkey Properties', '2020-7-18', 'Bangalore', 22, 88.83);
+
