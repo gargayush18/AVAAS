@@ -207,18 +207,18 @@ CREATE TABLE IF NOT EXISTS queries
 (
 query_id varchar(100) NOT NULL,
 public_id varchar(100) NOT NULL,
-house_id varchar(100) NOT NULL,
+project_id varchar(100) NOT NULL,
 actual_query VARCHAR(500),
 date_posted DATE NOT NULL,
 resolved VARCHAR(3) CHECK(resolved IN ('YES','NO')),
 FOREIGN KEY (public_id) REFERENCES Public(public_id),
-FOREIGN KEY (house_id) REFERENCES houses_in_one_project(house_id),
+FOREIGN KEY (project_id) REFERENCES Completed_Projects(completed_project_id),
 
 
 -- Added : A composite primary key 
 -- (i, xx) represents the ith query of project with id xx
 
-PRIMARY KEY(query_id, house_id)
+PRIMARY KEY(query_id, project_id)
 );
 CREATE TABLE IF NOT EXISTS house_applicants
 (
