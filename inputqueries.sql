@@ -1180,3 +1180,20 @@ INSERT INTO queries VALUES('QR003', 'CP0039', 'PUB002', 'How many bedrooms are t
 INSERT INTO queries VALUES('QR001', 'CP0040', 'PUB0036', 'Are there both front and back balconies or just one?', '2020-02-25', 'NO');
 INSERT INTO queries VALUES('QR002', 'CP0040', 'PUB0038', 'Are the parking charges included?', '2020-02-12', 'YES');
 INSERT INTO queries VALUES('QR003', 'CP0040', 'PUB0029', 'Are there any grocery stores nearby?', '2020-11-11', 'NO')
+
+
+
+
+INSERT INTO reviews VALUES('RW001', 'PUB001', 'CP0032', 9, 'My office is in cuber hub, which is in gurgaon, I have never seen such security precautions anywhere else. Whenever I had any concern regarding my parking or building or security issues, they have one stop email address and they resolve their query in a single working day. I have observed that several times');
+INSERT INTO reviews VALUES('RW001', 'PUB002', 'CP0033', 2, 'The project is looting people, 5k non-refundable shift in + 5k shift out charges, only triple play broadband, needs supermarket is expensive, the staff is not cooperative they are only interested to collect money from not bothered to provide you the services.');
+INSERT INTO reviews VALUES('RW001', 'PUB003', 'CP0034', 8, 'I came with my wife, the staff is very corporative & helpful. Cleaned and nice apartment. Definitely recommend this to others.');
+INSERT INTO reviews VALUES('RW001', 'PUB004', 'CP0035', 7, 'Even though the apartment was spacious and kitchen is equipped which is also the main point. Staff was very good and helpful. They made one watsapp group, which is very rare to see in hospitality industry. Infact it is also good if I had some points I just texted then they revert me very quickly. ');
+INSERT INTO reviews VALUES('RW001', 'PUB005', 'CP0036', 8, ' It is very beautifull and attractive. Nice infrastracture .. I live in Sec-29, every thing is near by like police station, metro, hospital, malls, school, parks, kingdom of dreams is also their etc. ');
+INSERT INTO reviews VALUES('RW001', 'PUB006', 'CP001', 9, 'Best project in the area, upto 1cr 4bhk - Mnimum 2000k sq ft');
+INSERT INTO reviews VALUES('RW001', 'PUB007', 'CP002', 8, 'The staff (Ravi and Satish) were nice and well mannered. Provided help whenever asked with prompt action. My mother and sister stayed for a week and the location is pretty peaceful and well connected opposite to Galleria market ');
+INSERT INTO reviews VALUES('RW001', 'PUB008', 'CP003', 5, 'The kitchen could b made more systematic. E.g. the microwave was kept on the fridge and opening the door was a pain. Similarly there was 1 garbage for wet and dry. Good to keep them separate ');
+INSERT INTO reviews VALUES('RW002', 'PUB009', 'CP0035', 7, 'There is a fully equipped kitchen which is very rare to see in all others apartments, which is so helpful for main course cooking and it is more than a boring hotel room and we can find nearby grocery stores and many other good spots, over all wonderful experience.');
+INSERT INTO reviews VALUES('RW002', 'PUB0010', 'CP0036', 6, 'The staff is very attentive they give a quick response to your queries. The problem is with their parking facility they charge to much for parking and do not give liberty for extra two minutes.');
+
+
+
