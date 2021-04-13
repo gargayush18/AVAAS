@@ -1042,6 +1042,31 @@ INSERT INTO house_applicants VALUES('PUB0056','CP0029','Under review','2019-7-28
 INSERT INTO house_applicants VALUES('PUB0057','CP0027','Under review','2021-9-2');
 
 
+INSERT INTO house_applicants VALUES('PUB002','CP0033','Alloted','2021-01-12');
+INSERT INTO house_applicants VALUES('PUB007','CP0033','Not alloted','2021-11-12');
+INSERT INTO house_applicants VALUES('PUB0012','CP0033','Not alloted','2021-10-12');
+INSERT INTO house_applicants VALUES('PUB003','CP0034','Alloted','2021-08-22');
+INSERT INTO house_applicants VALUES('PUB006','CP0034','Not alloted','2021-06-22');
+INSERT INTO house_applicants VALUES('PUB0016','CP0034','Not alloted','2021-04-12');
+INSERT INTO house_applicants VALUES('PUB004','CP0035','Alloted','2021-11-02');
+INSERT INTO house_applicants VALUES('PUB0014','CP0035','Not alloted','2021-01-02');
+INSERT INTO house_applicants VALUES('PUB0017','CP0035','Not alloted','2021-11-15');
+INSERT INTO house_applicants VALUES('PUB005','CP0036','Alloted','2021-01-02');
+INSERT INTO house_applicants VALUES('PUB0015','CP0036','Not alloted','2021-05-13');
+INSERT INTO house_applicants VALUES('PUB0019','CP0036','Not alloted','2021-01-17');
+INSERT INTO house_applicants VALUES('PUB006','CP001','Alloted','2021-03-03');
+INSERT INTO house_applicants VALUES('PUB0016','CP001','Not alloted','2021-06-13');
+INSERT INTO house_applicants VALUES('PUB0011','CP001','Not alloted','2021-03-21');
+INSERT INTO house_applicants VALUES('PUB007','CP002','Alloted','2021-05-12');
+INSERT INTO house_applicants VALUES('PUB0017','CP002','Not alloted','2021-02-12');
+INSERT INTO house_applicants VALUES('PUB0018','CP002','Not alloted','2021-05-26');
+INSERT INTO house_applicants VALUES('PUB008','CP003','Alloted','2021-04-22');
+INSERT INTO house_applicants VALUES('PUB0013','CP003','Not alloted','2021-04-23');
+INSERT INTO house_applicants VALUES('PUB0014','CP003','Not alloted','2021-07-25');
+
+
+
+
 
     UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB001', `assigned` = 'YES' WHERE (`project_id` = 'CP0032' AND `house_id` = 'HP001' );
     UPDATE `AVAAS2`.`houses_in_one_project` SET `owner_id` = 'PUB002', `assigned` = 'YES' WHERE (`project_id` = 'CP0033' AND `house_id` = 'HP001' );
