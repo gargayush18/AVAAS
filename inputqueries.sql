@@ -1222,3 +1222,26 @@ INSERT INTO reviews VALUES('RW002', 'PUB0010', 'CP0036', 6, 'The staff is very a
 
 
 
+
+
+-- Added just 1 loan for the time being
+INSERT INTO Loans VALUES('LN001','Joykirat Singh', 'Allahabad Bank', 'FICT0052','BNK001', 10.00, '2020-05-22', 2.00, 0.00, 2);
+INSERT INTO Loans VALUES('LN001','Abhinav Dhawan', 'Axis Bank', 'FICT0053','BNK002', 10.00, '2020-04-24', 1.25, 0.10,  3);
+INSERT INTO Loans VALUES('LN001','Yuvraj', 'Bank of India', 'FICT0054', 'BNK003', 23.00,'2020-04-25', 3.25, 0.20,  4);
+INSERT INTO Loans VALUES('LN001','Parth Gupta','Catholic Syrian Bank Ltd.', 'FICT0055', 'BNK004', 23.00, '2020-12-14', 1.20, 0.10, 2);
+INSERT INTO Loans VALUES('LN001','Rohan', 'City Union Bank', 'FICT0056', 'BNK005', 14.00,'2020-05-01',2.25, 0.00, 3);
+INSERT INTO Loans VALUES('LN001','Soham Das','Dena Bank', 'FICT0057', 'BNK006', 12.00, '2020-07-20',3.50, 1.00,  4);
+INSERT INTO Loans VALUES('LN001','Utkarsh Gupta', 'DBS Bank','FICT0058', 'BNK007', 13.00, '2020-02-12',4.25, 0.50, 2);
+INSERT INTO Loans VALUES('LN001','Khushi', 'HSBC Bank','FICT0059', 'BNK008',9.00, '2020-05-21', 3.00, 0.25, 3);
+INSERT INTO Loans VALUES('LN001','Surbhit', 'American Express', 'FICT0060', 'BNK009', 12.00, '2020-03-21', 3.50, 0.00, 4);
+INSERT INTO Loans VALUES('LN001','Ayushman Pandita','Bandhan Bank', 'FICT0061', 'BNK0010', 17.00, '2020-07-29', 4.10, 0.20, 2);
+
+
+INSERT INTO Loans VALUES('LN001','M/s. KCP Projects Ltd.', 'Bank of Maharashtra', 'FICT005','BNK0011', 13.00, '2020-01-01',42.00, 2.00,  5 );
+INSERT INTO Loans VALUES('LN001','M/s. KMV Projects Limited', 'Central Bank of India', 'FICT004','BNK0012', 16.00, '2020-02-24', 54.00, 3.00,  6 );
+INSERT INTO Loans VALUES('LN001','M/s Jain Infraprojects Limited', 'Corporation Bank', 'FICT0030', 'BNK0013', 15.00,'2020-03-15', 73.00, 4.00,  5);
+INSERT INTO Loans VALUES('LN001','M/s. Patel Engineering Ltd.' ,'Deutsche Bank', 'FICT0011', 'BNK0014', 16.00, '2020-02-21', 89.00, 5.00, 7);
+INSERT INTO Loans VALUES('LN001','M/s Hindustan Construction Co. Ltd.','Federal Bank',  'FICT0015', 'BNK0015', 17.00,'2020-05-11', 62.00, 3.00, 6);
+
+
+
