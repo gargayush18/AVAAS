@@ -1,23 +1,32 @@
 from flask import Flask, render_template, url_for, request, redirect
-
+import mysql.connector
+username=""
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="Password@1234",
+  database='AVAAS2'
+)
+mycursor = mydb.cursor()
 app = Flask(__name__)
 
 @app.route('/' , methods=['POST','GET'])
 def index():
     if request.method=='POST': 
         task_content = request.form['content']
-        hje= task_content
+        hje=task_content
+        global username
+        username= task_content
 
-        
         print(task_content)
-        if task_content=="bank":
+        if task_content[0:3]=="BNK":
             return render_template('bank.html')
-        if task_content=="contractor":
+        if task_content[0:4]=="Cont":
             return render_template('contractor.html', hje= hje )
-        if task_content=="govt":
+        if task_content[0:4]=="GOVT":
             return render_template('govt.html', hje= hje )
-        if task_content=="public":
-            return render_template('public.html')
+        if task_content[0:3]=="PUB":
+            return render_template('public.html',hje=hje)
             
 
 
@@ -108,15 +117,22 @@ def display_project_bid(id):
 def handle_public_queries():
     if request.method=='POST': 
         if request.form['submit_button'] == 'Search for Houses':
+            mycursor.execute("select * from Completed_Projects") 
+            data = mycursor.fetchall() #data from database 
             print("hellp i m clicked")
-            return render_template('house_search.html')
+            return render_template('house_search.html',value=data)
         if request.form['submit_button'] == 'Search for Banks':
+            mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='public'") 
+            data = mycursor.fetchall() #data from database 
             print("hellp i m clicked")
-            return render_template('bankpage.html')
+            print("hellp i m clicked")
+            return render_template('bankpage.html',value=data)
         if request.form['submit_button'] == 'Search for the home requests status':
             print("hellp i m clicked")
-            
-            return render_template('homerequeststatus.html')
+            print(username,'ghghg')
+            mycursor.execute("SELECT * FROM house_applicants WHERE public_id=%s",(username,) )
+            data = mycursor.fetchall()
+            return render_template('homerequeststatus.html',value=data)
         if request.form['submit_button'] == 'My home':
             
             

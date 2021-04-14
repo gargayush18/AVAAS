@@ -8,29 +8,35 @@
 
 <body>
  
-    <table >
-        <tr>
-            <th>Bank name </th>
-            <th>rate of interes</th>
-            <th>Maxiumum loan amount </th>
-            <th>Maximum time </th>
-            
-        </tr>
-         
-            <tr>
-                <td>SBI</td>
-                <td>8%</td>
-                <td>
-                  10000000000000
-                </td>
-                <td>
-                    10 years 
-                </td>
-                
-
-            </tr>
-           
-    </table>
+    
+    <table border="1" >
+        <thead> 
+           <tr>
+               <th>Loan_id</th>
+               <th>Name</th>
+               <th>ROI</th>
+               <th>Max_amount</th>
+               <th>Max_duration</th>
+               <th>Installments</th>
+           </tr>
+           </thread>
+        
+               
+                  <tbody> 
+           {% for row in value %}  
+               <tr> 
+                   <td>{{row[0]}}</td> 
+                   <td>{{row[1]}}</td> 
+                   <td>{{row[2]}}</td>
+                   <td>{{row[3]}}</td>
+                   <td>{{row[4]}}</td>
+                   <td>{{row[5]}}</td>
+                    
+               </tr> 
+           {% endfor %} 
+       </tbody> 
+              
+       </table>
     <br/><br/><br/><br/><br/><br/><br/>
   
     <form action="/ratecalculator" method= "POST">
