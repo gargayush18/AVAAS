@@ -1,5 +1,3 @@
-
-
 INSERT INTO Financial_Customers VALUES('FICT001','M/s Recon Engineers(India) Pvt. Ltd. 227,Kamalalaya Centre,156 A Lenin sarani,Kolkata 700013','contractor',true,83);
 INSERT INTO Financial_Customers VALUES('FICT002','M/s. Durha Construction Pvt. Ltd 5th Floor, Anushika Shopping Mall Sector 11, Rohini New Delhi-110085','contractor',true,83);
 INSERT INTO Financial_Customers VALUES('FICT003','M/s. Vensar Constructions Company Limited, Plot no. 28, 1st Floor, Navodaya Colony, Road No 2, Banjara hills, Hyderabad 500034, Andhra Pradesh','contractor',true,94);
@@ -1287,8 +1285,3 @@ INSERT INTO Transactions VALUES('T2', '2015-08-23', 'FICT0023', 'FICT0050', 19.6
 INSERT INTO Transactions VALUES('T3', '2015-09-23', 'FICT0023', 'FICT0050', 19.68 ,'loan_payment');
 INSERT INTO Transactions VALUES('T4', '2015-10-23', 'FICT0023', 'FICT0050', 19.68 ,'loan_payment');
 INSERT INTO Transactions VALUES('T5', '2015-11-23', 'FICT0023', 'FICT0050', 19.68 ,'loan_payment');
-
-
-
-
-

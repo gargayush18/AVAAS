@@ -57,14 +57,9 @@ PRIMARY KEY(loan_id, id_borrower, id_lender)
 
 CREATE TABLE IF NOT EXISTS Transactions
 (
-
 id_transaction varchar(50) NOT NULL,
 date_of_transaction DATE NOT NULL,
 
-
-
-id_transaction VARCHAR(100) NOT NULL,
-date_of_transaction DATE NOT NULL,
 
 sender_id VARCHAR(100) NOT NULL,
 receiver_id VARCHAR(100) NOT NULL,
@@ -263,3 +258,4 @@ CREATE TABLE IF NOT EXISTS login_details
 user_id varchar(100) primary key,
 user_password varchar(100) not null
 );
+
