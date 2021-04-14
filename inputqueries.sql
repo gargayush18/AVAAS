@@ -1257,5 +1257,38 @@ INSERT INTO loan_applicants VALUES('L56', 'FICT0025', 'Sanctioned', '2015-04-07'
 INSERT INTO loan_applicants VALUES('L57', 'FICT0030', 'Sanctioned', '2015-05-11');
 INSERT INTO loan_applicants VALUES('L58', 'FICT0023', 'Sanctioned', '2015-06-13');
 
+INSERT INTO Transactions VALUES('T1', '2015-02-02', 'FICT0010', 'FICT0051', 14.70 ,'loan_payment');
+INSERT INTO Transactions VALUES('T2', '2015-03-02', 'FICT0010', 'FICT0051', 14.70 ,'loan_payment');
+INSERT INTO Transactions VALUES('T3', '2015-04-02', 'FICT0010', 'FICT0051', 14.70 ,'loan_payment');
+INSERT INTO Transactions VALUES('T4', '2015-05-02', 'FICT0010', 'FICT0051', 14.70 ,'loan_payment');
+INSERT INTO Transactions VALUES('T5', '2015-06-02', 'FICT0010', 'FICT0051', 14.70 ,'loan_payment');
+INSERT INTO Transactions VALUES('T1', '2015-03-02', 'FICT0014', 'FICT0051', 12.37,'loan_payment');
+INSERT INTO Transactions VALUES('T2', '2015-04-02', 'FICT0014', 'FICT0051', 12.37,'loan_payment');
+INSERT INTO Transactions VALUES('T3', '2015-05-02', 'FICT0014', 'FICT0051', 12.37,'loan_payment');
+INSERT INTO Transactions VALUES('T4', '2015-06-02', 'FICT0014', 'FICT0051', 12.37,'loan_payment');
+INSERT INTO Transactions VALUES('T5', '2015-07-02', 'FICT0014', 'FICT0051', 12.37,'loan_payment');
+INSERT INTO Transactions VALUES('T1', '2015-04-12', 'FICT003', 'FICT0051', 27.53 ,'loan_payment');
+INSERT INTO Transactions VALUES('T2', '2015-05-12', 'FICT003', 'FICT0051', 27.53 ,'loan_payment');
+INSERT INTO Transactions VALUES('T3', '2015-06-12', 'FICT003', 'FICT0051', 27.53 ,'loan_payment');
+INSERT INTO Transactions VALUES('T4', '2015-07-12', 'FICT003', 'FICT0051', 27.53 ,'loan_payment');
+INSERT INTO Transactions VALUES('T5', '2015-08-12', 'FICT003', 'FICT0051', 27.53 ,'loan_payment');
+INSERT INTO Transactions VALUES('T1', '2015-05-12', 'FICT0025', 'FICT0050', 10.56 ,'loan_payment');
+INSERT INTO Transactions VALUES('T2', '2015-06-12', 'FICT0025', 'FICT0050', 10.56 ,'loan_payment');
+INSERT INTO Transactions VALUES('T3', '2015-07-12', 'FICT0025', 'FICT0050', 10.56 ,'loan_payment');
+INSERT INTO Transactions VALUES('T4', '2015-08-12', 'FICT0025', 'FICT0050', 10.56 ,'loan_payment');
+INSERT INTO Transactions VALUES('T5', '2015-09-12', 'FICT0025', 'FICT0050', 10.56 ,'loan_payment');
+INSERT INTO Transactions VALUES('T1', '2015-06-25', 'FICT0030', 'FICT0050', 21.56 ,'loan_payment');
+INSERT INTO Transactions VALUES('T2', '2015-07-25', 'FICT0030', 'FICT0050', 21.56 ,'loan_payment');
+INSERT INTO Transactions VALUES('T3', '2015-08-25', 'FICT0030', 'FICT0050', 21.56 ,'loan_payment');
+INSERT INTO Transactions VALUES('T4', '2015-09-25', 'FICT0030', 'FICT0050', 21.56 ,'loan_payment');
+INSERT INTO Transactions VALUES('T5', '2015-10-25', 'FICT0030', 'FICT0050', 21.56 ,'loan_payment');
+INSERT INTO Transactions VALUES('T1', '2015-07-23', 'FICT0023', 'FICT0050', 19.68 ,'loan_payment');
+INSERT INTO Transactions VALUES('T2', '2015-08-23', 'FICT0023', 'FICT0050', 19.68 ,'loan_payment');
+INSERT INTO Transactions VALUES('T3', '2015-09-23', 'FICT0023', 'FICT0050', 19.68 ,'loan_payment');
+INSERT INTO Transactions VALUES('T4', '2015-10-23', 'FICT0023', 'FICT0050', 19.68 ,'loan_payment');
+INSERT INTO Transactions VALUES('T5', '2015-11-23', 'FICT0023', 'FICT0050', 19.68 ,'loan_payment');
+
+
+
 
 
