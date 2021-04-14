@@ -292,6 +292,13 @@ INSERT INTO loans_offered VALUES('L49','BNK0019',13.0,1450000.0,7.0,15.0,'public
 INSERT INTO loans_offered VALUES('L50','BNK0019',17.0,8700000.0,18.0,36.0,'contractor');
 INSERT INTO loans_offered VALUES('L51','BNK0020',15.0,4450000.0,6.0,19.0,'public');
 INSERT INTO loans_offered VALUES('L52','BNK0020',19.0,4600000.0,19.0,35.0,'contractor');
+INSERT INTO loans_offered VALUES('L53','BNK0020',15.0,732500000.0,6.0,19.0,'contractor');
+INSERT INTO loans_offered VALUES('L54','BNK0020',19.0,618600000.0,19.0,35.0,'contractor');
+INSERT INTO loans_offered VALUES('L55','BNK0020',15.0,1376600000.0,6.0,19.0,'contractor');
+INSERT INTO loans_offered VALUES('L56','BNK0019',19.0,528400000.0,19.0,35.0,'contractor');
+INSERT INTO loans_offered VALUES('L57','BNK0019',15.0,1078000000.0,6.0,19.0,'contractor');
+INSERT INTO loans_offered VALUES('L58','BNK0019',19.0,984100000.0,19.0,35.0,'contractor');
+
 
 
 
