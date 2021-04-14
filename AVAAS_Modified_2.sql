@@ -56,10 +56,8 @@ PRIMARY KEY(loan_id, id_borrower, id_lender)
 );
 CREATE TABLE IF NOT EXISTS Transactions
 (
-id_transaction INT NOT NULL,
+id_transaction VARCHAR(100) NOT NULL,
 date_of_transaction DATE NOT NULL,
-sender VARCHAR(100) NOT NULL,
-receiver VARCHAR(100) NOT NULL,
 sender_id VARCHAR(100) NOT NULL,
 receiver_id VARCHAR(100) NOT NULL,
 amount DECIMAL(13,2) NOT NULL CHECK(amount>=0.0),
