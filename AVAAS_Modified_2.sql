@@ -35,8 +35,8 @@ CREATE TABLE IF NOT EXISTS loans_offered
 CREATE TABLE IF NOT EXISTS Loans
 (
 loan_id VARCHAR(100) NOT NULL,
-borrower VARCHAR(200) NOT NULL,
-lender VARCHAR(200) NOT NULL,
+
+
 id_borrower VARCHAR(100) NOT NULL,
 id_lender VARCHAR(100) NOT NULL,
 interest_rate DECIMAL(13,2) NOT NULL CHECK(interest_rate<=100.0 AND interest_rate>=0),
@@ -54,12 +54,13 @@ FOREIGN KEY(id_lender) REFERENCES Banks(f_institution_id),
 PRIMARY KEY(loan_id, id_borrower, id_lender)
 
 );
+
 CREATE TABLE IF NOT EXISTS Transactions
 (
-id_transaction INT NOT NULL,
+id_transaction varchar(50) NOT NULL,
 date_of_transaction DATE NOT NULL,
-sender VARCHAR(100) NOT NULL,
-receiver VARCHAR(100) NOT NULL,
+
+
 sender_id VARCHAR(100) NOT NULL,
 receiver_id VARCHAR(100) NOT NULL,
 amount DECIMAL(13,2) NOT NULL CHECK(amount>=0.0),
@@ -257,5 +258,3 @@ CREATE TABLE IF NOT EXISTS login_details
 user_id varchar(100) primary key,
 user_password varchar(100) not null
 );
-
-
