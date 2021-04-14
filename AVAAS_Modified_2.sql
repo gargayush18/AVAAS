@@ -35,7 +35,8 @@ CREATE TABLE IF NOT EXISTS loans_offered
 CREATE TABLE IF NOT EXISTS Loans
 (
 loan_id VARCHAR(100) NOT NULL,
-
+borrower varchar(200) NOT NULL, 
+lender varchar(200) NOT NULL, 
 
 id_borrower VARCHAR(100) NOT NULL,
 id_lender VARCHAR(100) NOT NULL,
@@ -207,8 +208,9 @@ PRIMARY KEY(review_id, project_id)
 CREATE TABLE IF NOT EXISTS queries
 (
 query_id varchar(100) NOT NULL,
-public_id varchar(100) NOT NULL,
 project_id varchar(100) NOT NULL,
+public_id varchar(100) NOT NULL,
+
 actual_query VARCHAR(500),
 date_posted DATE NOT NULL,
 resolved VARCHAR(3) CHECK(resolved IN ('YES','NO')),
