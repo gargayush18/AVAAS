@@ -17,7 +17,6 @@ def index():
         hje=task_content
         global username
         username= task_content
-
         print(task_content)
         if task_content[0:3]=="BNK":
             return render_template('bank.html')
@@ -119,13 +118,10 @@ def handle_public_queries():
         if request.form['submit_button'] == 'Search for Houses':
             mycursor.execute("select * from Completed_Projects") 
             data = mycursor.fetchall() #data from database 
-            print("hellp i m clicked")
             return render_template('house_search.html',value=data)
         if request.form['submit_button'] == 'Search for Banks':
             mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='public'") 
             data = mycursor.fetchall() #data from database 
-            print("hellp i m clicked")
-            print("hellp i m clicked")
             return render_template('bankpage.html',value=data)
         if request.form['submit_button'] == 'Search for the home requests status':
             print("hellp i m clicked")
@@ -160,10 +156,26 @@ def displayhouseinfo(id):
 @app.route('/publictransact' , methods=['POST','GET'])
 def publicpayments():
     if request.method=='POST': 
-        if request.form['submit_button'] == 'Check my Hosue payments':
-            return render_template("view_transactions.html")
+        if request.form['submit_button'] == 'Check my House payments':
+            mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
+            val=mycursor.fetchall()
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='general' and (sender_id=%s or receiver_id=%s))",(f_cust_id,f_cust_id,)) 
+            data = mycursor.fetchall()
+            return render_template("view_transactions.html",value=data)
         if request.form['submit_button'] == 'Check my loan payments':
-            return render_template("loan.html")
+            mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
+            val=mycursor.fetchall()
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='loan_payment' and (sender_id=%s or receiver_id=%s))",(f_cust_id,f_cust_id,)) 
+            data = mycursor.fetchall()
+            return render_template("loan.html",value=data)
         
 
 
