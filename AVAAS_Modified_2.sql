@@ -211,6 +211,10 @@ query_id varchar(100) NOT NULL,
 project_id varchar(100) NOT NULL,
 
 
+
+public_id varchar(100) NOT NULL,
+
+
 actual_query VARCHAR(500),
 date_posted DATE NOT NULL,
 resolved VARCHAR(3) CHECK(resolved IN ('YES','NO')),
