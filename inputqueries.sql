@@ -1250,5 +1250,12 @@ INSERT INTO Loans VALUES('LN001','M/s Jain Infraprojects Limited', 'Corporation 
 INSERT INTO Loans VALUES('LN001','M/s. Patel Engineering Ltd.' ,'Deutsche Bank', 'FICT0011', 'BNK0014', 16.00, '2020-02-21', 89.00, 5.00, 7);
 INSERT INTO Loans VALUES('LN001','M/s Hindustan Construction Co. Ltd.','Federal Bank',  'FICT0015', 'BNK0015', 17.00,'2020-05-11', 62.00, 3.00, 6);
 
+INSERT INTO loan_applicants VALUES('L53', 'FICT0010', 'Sanctioned', '2015-01-01'); 
+INSERT INTO loan_applicants VALUES('L54', 'FICT0014', 'Sanctioned', '2015-02-04');
+INSERT INTO loan_applicants VALUES('L55', 'FICT003', 'Sanctioned', '2015-03-05');
+INSERT INTO loan_applicants VALUES('L56', 'FICT0025', 'Sanctioned', '2015-04-07');
+INSERT INTO loan_applicants VALUES('L57', 'FICT0030', 'Sanctioned', '2015-05-11');
+INSERT INTO loan_applicants VALUES('L58', 'FICT0023', 'Sanctioned', '2015-06-13');
+
 
 
