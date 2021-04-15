@@ -130,15 +130,42 @@ def handle_public_queries():
             data = mycursor.fetchall()
             return render_template('homerequeststatus.html',value=data)
         if request.form['submit_button'] == 'My home':
-            
-            
             return render_template('myhome.html')
         if request.form['submit_button'] == 'Check for the transactions':
-            
-            
             return render_template('publicpayments.html')
         
+@app.route('/banksort' , methods=['POST','GET'])
+def banksort():
+    if request.method=='POST': 
+        if request.form['submit_button'] == 'Fiter by ROI ':
+            mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='public'order by(ROI)") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('bankpage.html',value=data)
+        if request.form['submit_button'] == 'Filter by Amount  ':
+            mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='public'order by(max_loan_amount)") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('bankpage.html',value=data)
+        if request.form['submit_button'] == 'Filter by time':
+            mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='public'order by(max_duration)") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('bankpage.html',value=data)
+        if request.form['submit_button'] == 'Calculate maximum future value':
+            mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='public' order by(no_of_installments)") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('bankpage.html',value=data)
+
+@app.route('/housesort' , methods=['POST','GET'])
+def housesort():
+    if request.method=='POST': 
+        task_content = request.form['locname']
+        print(task_content)
+        mycursor.execute("select * from Completed_Projects where (location= %s)",(task_content,)) 
+        data = mycursor.fetchall() #data from database 
+        return render_template('house_search.html',value=data)
         
+    
+
+
 
 
 
@@ -177,10 +204,52 @@ def publicpayments():
             data = mycursor.fetchall()
             return render_template("loan.html",value=data)
         
-
-
-
-
+@app.route('/transactionfilter' , methods=['POST','GET'])
+def sortpublicpayments():
+    if request.method=='POST': 
+        if request.form['submit_button'] == 'Sort by date':
+            mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
+            val=mycursor.fetchall()
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='general' and (sender_id=%s or receiver_id=%s)) order by(date_of_transaction)",(f_cust_id,f_cust_id,)) 
+            data = mycursor.fetchall()
+            return render_template("view_transactions.html",value=data)
+        if request.form['submit_button'] == 'sort by amount':
+            mycursor.execute("select f_customer_id from Public where public_id=%s ",(username,))
+            val=mycursor.fetchall()
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='general' and (sender_id=%s or receiver_id=%s)) order by(amount)",(f_cust_id,f_cust_id,)) 
+            data = mycursor.fetchall()
+            return render_template("view_transactions.html",value=data)
+@app.route('/transactionfilterloan' , methods=['POST','GET'])
+def sortpublicloan():
+    if request.method=='POST': 
+        if request.form['submit_button'] == 'Sort by date':
+            mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
+            val=mycursor.fetchall()
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='loan_payment' and (sender_id=%s or receiver_id=%s)) order by(date_of_transaction)",(f_cust_id,f_cust_id,)) 
+            data = mycursor.fetchall()
+            return render_template("loan.html",value=data)
+        if request.form['submit_button'] == 'sort by amount':
+            mycursor.execute("select f_customer_id from Public where public_id=%s ",(username,))
+            val=mycursor.fetchall()
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='loan_payment' and (sender_id=%s or receiver_id=%s)) order by(amount)",(f_cust_id,f_cust_id,)) 
+            data = mycursor.fetchall()
+            return render_template("loan.html",value=data)
 
 
 
