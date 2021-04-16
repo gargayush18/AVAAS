@@ -51,6 +51,20 @@ def add_new_projects():
             return render_template('view_transactions.html')
 
 
+@app.route('/fin_insti' , methods=['POST','GET'])
+def add_new_projects():
+    if request.method=='POST': 
+        if request.form['submit_button'] == 'View lender details':
+            return render_template('view_ongoing.html')#'lenderdetails.html')
+        if request.form['submit_button'] == 'View contractor competency score':
+            return render_template('view_ongoing.html')#'contcompe.html')
+        if request.form['submit_button'] == 'View public competency score':
+            return render_template('view_ongoing.html')#'publiccompe.html')
+        if request.form['submit_button'] == 'View net profit of the year':
+            return render_template('view_ongoing.html')#'netprofit.html')
+
+
+
 
 # not maded the functions for implement this       
 
