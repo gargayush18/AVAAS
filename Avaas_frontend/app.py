@@ -133,6 +133,16 @@ def handle_public_queries():
             return render_template('myhome.html')
         if request.form['submit_button'] == 'Check for the transactions':
             return render_template('publicpayments.html')
+        if request.form['submit_button'] == 'Check Loan Application Status':
+            mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
+            val=mycursor.fetchall()
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            mycursor.execute("SELECT * FROM loan_applicants WHERE (f_customer_id=%s)",(f_cust_id,)) 
+            data = mycursor.fetchall()
+            return render_template('loanrequeststatus.html',value=data)
         
 @app.route('/banksort' , methods=['POST','GET'])
 def banksort():

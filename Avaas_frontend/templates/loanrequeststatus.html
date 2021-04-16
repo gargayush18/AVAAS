@@ -1,0 +1,47 @@
+<html>
+<head>
+    LOAN REQUEST STATUS
+</head>
+
+
+<body>
+ <h1>Welcome {{hje}}</h1>
+
+    <table border="1" >
+        <thead> 
+           <tr>
+               <th>Loan Id</th>
+               <th>Application Status</th>
+               <th>Application Time</th>
+           </tr>
+           </thread>
+            
+    
+                  <tbody> 
+           {% for row in value %}  
+               <tr> 
+                   <td>{{row[0]}}</td> 
+                   <td>{{row[2]}}</td>
+                   <td>{{row[3]}}</td>
+                    
+               </tr> 
+           {% endfor %} 
+       </tbody> 
+              
+       </table>
+   
+
+
+    <br/><br/><br/><br/><br/><br/><br/>
+    <form action="/stilltoadd" method ="POST">
+        <input type ="text">
+        <input type="submit"  name = "submit_button" value ="Filter by location"><br/> 
+        
+        <h1>Pyhton mein iska code nahi likha hai abhi</h1>
+    </form>
+    
+  
+
+</body>
+
+</html>
