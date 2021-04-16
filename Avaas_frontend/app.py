@@ -1,5 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
 import mysql.connector
+import queries
 username=""
 mydb = mysql.connector.connect(
   host="localhost",
@@ -82,17 +83,82 @@ def update(id):
 def search_projects():
     if request.method=='POST': 
         if request.form['submit_button'] == 'Search for projects':
-            print("hellp i m clicked")
-            return render_template('projectsearch.html')
+            mycursor.execute('select name, location , size , ongoing_project_id  from ongoing_projects where assigned="NO"') 
+            
+            data = mycursor.fetchall() #data from database 
+            print( data)
+            return render_template('projectsearch.html', value = data)
         if request.form['submit_button'] == "Search for Banks":
-            return render_template('bankpage.html')
+            mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='contractor'") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('bankpage.html',value=data)
+        if request.form['submit_button'] == "Check Complaints":
+            mycursor.execute('Select name, actual_query, date_posted  , resolved from completed_projects , 	queries  where queries.project_id=completed_project_id  And resolved = "No" AND  p_contractor_id="'+username+'"') 
+            data = mycursor.fetchall() #data from database 
+            return render_template('complaints.html',value=data)
+        if request.form['submit_button'] == "Check Bid status":
+            mycursor.execute(   'Select name, location , bid_value , application_time , application_status from project_applicants , 	ongoing_projects   where project_applicants.ongoing_project_id=ongoing_projects.ongoing_project_id  AND project_applicants.p_contractor_id="'+username + '"') 
+            data = mycursor.fetchall() #data from database 
+            return render_template('bidstatus.html',value=data)
+
+            
+
+
         if request.form['submit_button'] == 'Check for the transactions':
-            return render_template('transaction_page_user.html')
+            mycursor.execute("select f_customer_id from Contractors where contractor_id=%s",(username,))
+            val=mycursor.fetchall() 
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='general' and (sender_id=%s or receiver_id=%s))",(f_cust_id,f_cust_id,)) 
+            data = mycursor.fetchall()
+            
+            
+            return render_template('transaction_page_user.html',value =  data)
+        
+        
+        
+        
+        
+        
+        
+        
         if request.form['submit_button'] == 'Current project':
-            return render_template('projectdetails_ongoing.html')
+            mycursor.execute('Select * from ongoing_projects where p_contractor_id="' + username + '"') 
+
+            data = mycursor.fetchall() #data from database 
+            print ( data)
+            if ( len( data) ==0 ):
+                dat = "Oho! you have no current project going on"
+            else:
+                dat= "\nName =" + str(data[0][3])+  " \nLocation  =" + str(data[0][4])+ "\n Size  =" +str( data[0][5])+   "\n Completion Percentage  =" + str(data[0][6])
+                mycursor.execute('Select * from supplies where project_supplies_id="' + data[0][0] + '"') 
+                da = mycursor.fetchall() #data from database 
+                dat= dat +" \n Supplies Data \n"
+                dat= dat +"Material Cost  " + str(da[0][1]) + "Crs..\n"
+                dat= dat +"Labour Cost  " + str(da[0][2]) + "Crs..\n"
+                dat= dat +"Engineers Cost  " + str(da[0][2]) + "Crs..\n"
+                
 
 
+                
+                
+    
+                
 
+            print( dat)
+
+            return render_template('freepage.html', value = dat)
+
+@app.route('/finalbid' , methods=['POST','GET'])
+
+def thisfunc():
+    if request.method=='POST': 
+        task_content = request.form['bidvalue']
+        # mycursor.execute("INSERT INTO project_applicants VALUES(" + "'"+username+"',"+  "'"+idd+"',"+" 'Under review','2021-05-29 23:39:36',16.14);") 
+        
+        
 
 
 
@@ -102,7 +168,24 @@ def display_project_bid(id):
     # // display the project details here
     #// i have removed the for loop in the parent page 
     print( "cxnhfjd"+ str(id))
-    return render_template('bidpage.html')  
+    global idd
+    idd ="ONGP0010"
+    mycursor.execute('select *  from project_requirements where project_req_id ='+"'"+ idd +"'" ) 
+    data = mycursor.fetchall() #data from database 
+    
+    mycursor.execute('select *  from contractor_competency where c_competency_id ='+"'"+ username +"'" ) 
+    dataf = mycursor.fetchall() #data from database 
+    print(dataf)
+    insp= "No"
+    if ( dataf[0][1]>= data[0][1]  and dataf[0][2]>= data[0][4]):
+        if( data[0][2]=="NO"):
+            insp="Yes"
+        if( dataf[0][3]==data[0][2]):
+            insp="Yes"
+    
+
+
+    return render_template('bidpage.html' , value = data , val2 = insp) 
 
 
 
@@ -205,7 +288,7 @@ def publicpayments():
     if request.method=='POST': 
         if request.form['submit_button'] == 'Check my House payments':
             mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
-            val=mycursor.fetchall()
+            val=mycursor.fetchall() 
             f_cust_id=" "
             for row in val:
                 f_cust_id=row[0]

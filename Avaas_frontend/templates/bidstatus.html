@@ -1,6 +1,6 @@
 <html>
     <head>
-        Welcome to the bidding page
+        Check your bid status here
     </head>
     <body>
 
@@ -8,10 +8,11 @@
             <thead> 
                <tr>
                    
-                   <th>Minimum Experience </th>
-                   <th>Pre Workforce </th>
-                   <th>Minimum Cost </th>
-                   <th>No of projects</th>
+                   <th>Name</th>
+                   <th>Location </th>
+                   <th>  Bid value </th>
+                   <th>Application time </th>
+                   <th>Application status </th>
                    
                </tr>
                </thread>
@@ -20,7 +21,8 @@
                {% for row in value %}  
                    <tr> 
                        
-                       <td>{{row[1]}}</td> 
+                       <td>{{row[0]}}</td> 
+                       <td>{{row[1]}}</td>
                        <td>{{row[2]}}</td>
                        <td>{{row[3]}}</td>
                        <td>{{row[4]}}</td>
@@ -36,15 +38,13 @@
        
     
         
-        <form action="/finalbid" method= "POST">
-            <br><br>
-            <label for="USerID"> <b>Are U ABLE ? </b>     </label>
-            <label for="USerID">{{val2}}  <br/>   </label>
+        <form action="/notdecided" method= "POST">
+            
             <br/> <br/> <br/> <br/> <br/>   
 
-            <label for="USerID">Interested ?  <br/>   Enter your bid :</label><br><br>
-                <input type="text"  name="bidvalue">
-                <input type="submit" value ="Enter bid ">
+            <label for="USerID"> Filter by name </label><br><br>
+                <input type="text"  name="Project name ">
+                <input type="submit" value =" Run it ">
         </form>
     </body>
 </html>
