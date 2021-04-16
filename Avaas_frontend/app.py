@@ -166,12 +166,22 @@ def banksort():
 
 @app.route('/housesort' , methods=['POST','GET'])
 def housesort():
-    if request.method=='POST': 
-        task_content = request.form['locname']
-        print(task_content)
-        mycursor.execute("select * from Completed_Projects where (location= %s)",(task_content,)) 
-        data = mycursor.fetchall() #data from database 
-        return render_template('house_search.html',value=data)
+    if request.method=='POST':
+        if request.form['submit_button'] == 'Fiter by location': 
+            task_content = request.form['locname']
+            print(task_content)
+            mycursor.execute("select * from Completed_Projects where (location= %s)",(task_content,)) 
+            data = mycursor.fetchall() #data from database 
+            return render_template('house_search.html',value=data)
+        if request.form['submit_button'] == 'Apply for the entered house': 
+            task_content = request.form['projectid']
+            print(task_content)
+            print(username)
+            mycursor.execute("insert into house_applicants values(%s,%s,'Under review','2021-03-21')",(username,task_content,)) 
+            mydb.commit()
+            mycursor.execute("select * from Completed_Projects") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('house_search.html',value=data)
         
     
 
