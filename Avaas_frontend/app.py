@@ -4,7 +4,7 @@ username=""
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="Password@1234",
+  password="Ishu@123",
   database='AVAAS2'
 )
 mycursor = mydb.cursor()
