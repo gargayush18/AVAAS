@@ -187,6 +187,57 @@ def add_new_projects():
 
 ####################Contractors#####################
 
+@app.route('/notdecided' , methods=['POST','GET'])
+def decided():
+    if request.method=='POST': 
+        task_content= request.form['Projectname']
+        mycursor.execute(   'Select name, location , bid_value , application_time , application_status from project_applicants , 	ongoing_projects   where project_applicants.ongoing_project_id=ongoing_projects.ongoing_project_id     AND project_applicants.p_contractor_id="'+username + '" AND name = "' + task_content + '"') 
+        data = mycursor.fetchall() #data from database 
+        return render_template('bidstatus.html',value=data)
+
+
+
+
+
+        
+
+    
+
+
+
+
+
+@app.route('/banksot' , methods=['POST','GET'])
+def banksot():
+    if request.method=='POST': 
+        if request.form['submit_button'] == 'Fiter by ROI ':
+            mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='contractor'order by(ROI)") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('bankpagecont.html',value=data)
+        if request.form['submit_button'] == 'Filter by Amount  ':
+            mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='contractor'order by(max_loan_amount)") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('bankpagecont.html',value=data)
+        if request.form['submit_button'] == 'Filter by time':
+            mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='contractor'order by(max_duration)") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('bankpagecont.html',value=data)
+        if request.form['submit_button'] == 'Calculate maximum future value':
+            mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='contractor' order by(no_of_installments)") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('bankpagecont.html',value=data)
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/contractor' , methods=['POST','GET'])
 def search_projects():
     if request.method=='POST': 
@@ -199,7 +250,7 @@ def search_projects():
         if request.form['submit_button'] == "Search for Banks":
             mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='contractor'") 
             data = mycursor.fetchall() #data from database 
-            return render_template('bankpage.html',value=data)
+            return render_template('bankpagecont.html',value=data)
         if request.form['submit_button'] == "Check Complaints":
             mycursor.execute('Select name, actual_query, date_posted  , resolved from completed_projects , 	queries  where queries.project_id=completed_project_id  And resolved = "No" AND  p_contractor_id="'+username+'"') 
             data = mycursor.fetchall() #data from database 
