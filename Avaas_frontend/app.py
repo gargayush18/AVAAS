@@ -145,8 +145,6 @@ def govt_transactions2():
 
 
 
-            #Other 2 sortings left
-
 
 @app.route('/ShowCont' , methods=['POST','GET'])
 def show_contr():
