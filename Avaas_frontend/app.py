@@ -406,6 +406,20 @@ def display_project_bid(id):
 
 
 
+@app.route('/projectreviewforpublic/<id>',)
+def project_review(id):
+    
+   
+    # global idd
+    # print (id)
+    # idd = id 
+    project_id=str(id)
+    print( "project id for review"+ project_id)
+
+    mycursor.execute('select *  from reviews where project_id =%s',(project_id,) ) 
+    data = mycursor.fetchall() #data from database 
+    return render_template('reviews.html' , value = data) 
+
 
 
 
@@ -545,15 +559,6 @@ def publicpayments():
 def sortpublicpayments():
     if request.method=='POST': 
         if request.form['submit_button'] == 'Sort by date':
-            # mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
-            # val=mycursor.fetchall()
-            # f_cust_id=" "
-            # for row in val:
-            #     f_cust_id=row[0]
-            # print(f_cust_id)
-            # mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='general' and (sender_id=%s or receiver_id=%s)) order by(date_of_transaction)",(f_cust_id,f_cust_id,)) 
-            # data = mycursor.fetchall()
-            # return render_template("view_transactions.html",value=data)
             mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
             val=mycursor.fetchall() 
             f_cust_id=" "
@@ -566,15 +571,6 @@ def sortpublicpayments():
             print( data)
             return render_template("transaction_page_user.html",value=data)
         if request.form['submit_button'] == 'sort by amount':
-            # mycursor.execute("select f_customer_id from Public where public_id=%s ",(username,))
-            # val=mycursor.fetchall()
-            # f_cust_id=" "
-            # for row in val:
-            #     f_cust_id=row[0]
-            # print(f_cust_id)
-            # mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='general' and (sender_id=%s or receiver_id=%s)) order by(amount)",(f_cust_id,f_cust_id,)) 
-            # data = mycursor.fetchall()
-            # return render_template("view_transactions.html",value=data)
             mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
             val=mycursor.fetchall() 
             f_cust_id=" "
@@ -590,15 +586,6 @@ def sortpublicpayments():
 def sortpublicloan():
     if request.method=='POST': 
         if request.form['submit_button'] == 'Sort by date':
-        #     mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
-        #     val=mycursor.fetchall()
-        #     f_cust_id=" "
-        #     for row in val:
-        #         f_cust_id=row[0]
-        #     print(f_cust_id)
-        #     mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='loan_payment' and (sender_id=%s or receiver_id=%s)) order by(date_of_transaction)",(f_cust_id,f_cust_id,)) 
-        #     data = mycursor.fetchall()
-        #     return render_template("loan.html",value=data)
             mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
             val=mycursor.fetchall() 
             f_cust_id=" "
@@ -620,15 +607,6 @@ def sortpublicloan():
             print( da)
             return render_template("loan.html",value=da, val2= data[0] )
         if request.form['submit_button'] == 'sort by amount':
-            # mycursor.execute("select f_customer_id from Public where public_id=%s ",(username,))
-            # val=mycursor.fetchall()
-            # f_cust_id=" "
-            # for row in val:
-            #     f_cust_id=row[0]
-            # print(f_cust_id)
-            # mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='loan_payment' and (sender_id=%s or receiver_id=%s)) order by(amount)",(f_cust_id,f_cust_id,)) 
-            # data = mycursor.fetchall()
-            # return render_template("loan.html",value=data)
             mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
             val=mycursor.fetchall() 
             f_cust_id=" "
