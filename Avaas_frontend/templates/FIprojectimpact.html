@@ -1,0 +1,46 @@
+<html>
+<head>
+
+</head>
+
+
+<body>
+
+    <table border="1" >
+        <thead>
+           <tr>
+               <th>Institution_id</th>
+               <th>Contractor id</th>
+               <th>Project id </th>
+               <th>House id</th>
+               <th>Owner id</th>
+               
+           </tr>
+           </thead>
+
+
+                  <tbody>
+           {% for row in value %}
+               <tr>
+                   <td>{{row[0]}}</td>
+                   <td>{{row[1]}}</td>
+                   <td>{{row[2]}}</td>
+                   <td>{{row[3]}}</td>
+                   <td>{{row[4]}}</td>
+                   <td>{{row[5]}}</td>
+
+
+
+               </tr>
+           {% endfor %}
+       </tbody>
+
+       </table>
+
+
+       
+
+
+</body>
+
+</html>
