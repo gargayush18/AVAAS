@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, request, redirect
 import mysql.connector
 import queries
+from datetime import datetime
 username=""
 mydb = mysql.connector.connect(
   host="localhost",
@@ -478,6 +479,27 @@ def banksort():
             data = mycursor.fetchall() #data from database 
             return render_template('bankpage.html',value=data)
 
+        if request.form['submit_button'] == 'Apply for the entered loan id':
+
+            task_content = request.form['loanid']
+            
+            mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
+            val=mycursor.fetchall() 
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(task_content)
+            print(username)
+            print(f_cust_id)
+            now = datetime.now()
+            loan_application_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
+            print(loan_application_datetime)
+            mycursor.execute("insert into loan_applicants values(%s,%s,'Under review',%s)",(task_content,f_cust_id,loan_application_datetime,)) 
+            mydb.commit()
+            mycursor.execute("select * from Completed_Projects") 
+            data = mycursor.fetchall() #data from database 
+            return render_template('house_search.html',value=data)
+
 @app.route('/housesort' , methods=['POST','GET'])
 def housesort():
     if request.method=='POST':
@@ -492,7 +514,9 @@ def housesort():
             task_content = request.form['projectid']
             print(task_content)
             print(username)
-            mycursor.execute("insert into house_applicants values(%s,%s,'Under review','2021-03-21')",(username,task_content,)) 
+            now = datetime.now()
+            house_application_datetime = now.strftime("%Y-%m-%d")
+            mycursor.execute("insert into house_applicants values(%s,%s,'Under review',%s)",(username,task_content,house_application_datetime)) 
             mydb.commit()
             mycursor.execute("select * from Completed_Projects") 
             data = mycursor.fetchall() #data from database 
