@@ -7,61 +7,67 @@
 
 
 <body>
- 
+
     <form action="/newproject" method="POST"  >
-        
-        <label >EnterProject name :</label>
+
+        <label >Enter Project name :</label>
         <input type="text"  name="project_name"  ><br><br>
-        
+
 
 
         <label >Enter project area :</label>
-        <select name="loaction_area" >
+        <select name="location_area" >
             <option value="Agra">Agra</option>
             <option value="Delhi">Delhi</option>
             <option value="Bombay">Bombay</option>
             <option value="Fazilka">Fazilka</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Ludhiana">Ludhiana</option>
+            <option value="Panipat">Panipat</option>
+            <option value="Ambala">Ambala</option>
           </select><br><br>
 
-          <label >EnterProject Details :</label>
-          <textarea rows = "5" cols = "60" name = "description">
-            Enter details here...
-         </textarea><br><br><br><br><br>
+          <label >Enter Project Approximate Size (in sq. yards) :</label>
+          <input type="text" name="proj_size" value="">
+
+         <br><br><br><br><br>
 
 
          <h2>Other Requirements</h2>
-          <label >Expected Completion Time :</label>
-          <input type="date"  name="project_details"  ><br><br>
 
-
-          <label >MinimumExperience :</label>
+          <label >Minimum Experience :</label>
           <input type="text"  name="experience"  ><br><br>
 
           <label >Minimum Cost Handled:</label>
           <input type="text"  name="cost_handled"  ><br><br>
 
+          <label >No. of projects completed</label>
+          <input type="text"  name="proj_completed"  ><br><br>
+
+
           <label >Pre workforce needed:</label>
           <select name="workforce" >
-           
+
+
             <option value="Yes">Yes</option>
             <option value="No">No</option>
           </select><br><br>
 
 
-          <input type="submit"  name = "submit_button" value ="finalisedetails">
+          <input type="submit"  name = "submit_button" value ="Finalise Details">
 
 
 
 
 
-          
 
 
-        
-        
-      </form> 
-    
-    
+
+
+
+      </form>
+
+
 
 </body>
 
