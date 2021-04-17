@@ -155,7 +155,7 @@ def search_projects():
 
 def thisfunc():
     if request.method=='POST': 
-        task_content = request.form['bidvalue']
+        task_content= request.form['bidvalue']
         # mycursor.execute("INSERT INTO project_applicants VALUES(" + "'"+username+"',"+  "'"+idd+"',"+" 'Under review','2021-05-29 23:39:36',16.14);") 
         
         
