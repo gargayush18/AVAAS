@@ -1,0 +1,70 @@
+<html>
+<head>
+
+</head>
+
+
+<body>
+
+    <table border="1" >
+        <thead>
+           <tr>
+
+               <th>Application Time</th>
+               <th>Contractor Name</th>
+               <th>DOB</th>
+               <th>Phone Number</th>
+               <th>Other Details</th>
+               <th>Experience (in years)</th>
+               <th>No. of Completed Projects</th>
+               <th>Personal Workforce Available</th>
+               <th>Competency Score</th>
+               <th>Bid Value</th>
+               <th>Appliation Status</th>
+               <th>Assign Contractor</th>
+
+           </tr>
+           </thead>
+
+
+                  <tbody>
+           {% for row in value %}
+               <tr>
+
+                   <td>{{row[1]}}</td>
+                   <td>{{row[2]}}</td>
+                   <td>{{row[3]}}</td>
+                   <td>{{row[4]}}</td>
+                   <td>{{row[5]}}</td>
+                   <td>{{row[6]}}</td>
+                   <td>{{row[7]}}</td>
+                   <td>{{row[8]}}</td>
+                   <td>{{row[9]}}</td>
+                   <td>{{row[10]}}</td>
+                   <td>{{row[11]}}</td>
+
+
+                   <td>
+                     <form action="/AssignCont" method ="POST">
+                         <input type ="submit" name="submit_button" value ={{row[12]}}-to-{{row[0]}} >
+
+                  </form>
+                   </td>
+
+
+               </tr>
+           {% endfor %}
+       </tbody>
+
+       </table>
+
+
+
+
+       <br/><br/><br/><br/><br/><br/><br/>
+
+
+
+</body>
+
+</html>
