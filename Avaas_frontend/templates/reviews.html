@@ -12,7 +12,7 @@
         <thead> 
            <tr>
                <th>Review Id</th>
-               <th>Project Id</th>
+               <th>Public Id</th>
                <th>Review Score</th>
                <th>Review Comment</th>
            </tr>
@@ -22,7 +22,7 @@
            {% for row in value %}  
                <tr> 
                    <td>{{row[0]}}</td> 
-                   <td>{{row[2]}}</td> 
+                   <td>{{row[1]}}</td> 
                    <td>{{row[3]}}</td>
                    <td>{{row[4]}}</td>
                    <td><a href="/projectreviewforpublic/{{row[0]}}"></a></td>
