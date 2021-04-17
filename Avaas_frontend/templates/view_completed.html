@@ -1,39 +1,47 @@
 <html>
 <head>
-    
+
 </head>
 
 
 <body>
- <h1>Welcome</h1>
-    <table id= "Not started">
-        <tr>
-            <th>Project Name</th>
-            <th>Project Contractor</th>
-            <th>No of houses </th>
-            <th>People Interesed </th>
-            <th>Reviews</th>
-            <th>Other details</th>
-        </tr>
-         
-            <tr>
-                <td>hello</td>
-                <td>Mr. manohar lal</td>
-                <td>100</td>
-                <td>120</td>
-                <td>Link to a page</td>
 
-                
-                <td>
-                    <a href="/viewproject/1">Other details   </a>
-                </td>
+    <table border="1" >
+        <thead>
+           <tr>
+               <th>Project ID</th>
+               <th>Project Name</th>
+               <th>Project Contractor</th>
+               <th>Number of Houses</th>
 
-            </tr>
-           
-    </table>
-    <br/><br/><br/><br/><br/><br/><br/>
-    
-    
+           </tr>
+           </thead>
+
+
+                  <tbody>
+           {% for row in value %}
+               <tr>
+
+                 <td>
+                   <form action="/MoreCDetailsProj" method ="POST">
+                       <input type ="submit" name="submit_button" value ={{row[0]}} >
+
+                </form>
+              </td>
+
+                   <td>{{row[1]}}</td>
+                   <td>{{row[2]}}</td>
+                   <td>{{row[3]}}</td>
+
+
+               </tr>
+           {% endfor %}
+       </tbody>
+
+       </table>
+
+
+
 
 </body>
 
