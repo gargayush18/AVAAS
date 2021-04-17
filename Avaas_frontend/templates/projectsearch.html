@@ -26,10 +26,12 @@ Projects open to Bidding
                    <td>{{row[0]}}</td> 
                    <td>{{row[1]}}</td> 
                    <td>{{row[2]}}</td>
+
+                 
                    <td>
-                    <a href="/putbid/1">Other details</a></td>
+                    <a href="/putbid/{{row[3]}}">Other details</a></td>
                 
-                   
+                    
                     
                </tr> 
            {% endfor %} 
@@ -40,11 +42,9 @@ Projects open to Bidding
 
 
     <br/><br/><br/><br/><br/><br/><br/>
-    <form action="/housesort" method ="POST">
+    <form action="/projectsort" method ="POST">
         <input type ="text" name="locname">
         <input type="submit"  name = "submit_button" value ="Filter by location"><br/> 
-        <input type ="text" name="projectid">
-        <input type="submit"  name = "submit_button" value ="Apply for the entered house"><br/> 
         
         <h1>Pyhton mein iska code nahi likha hai abhi</h1>
     </form>

@@ -36,7 +36,7 @@ def index():
 
 
     
-####################Government#####################
+################################################Government#########################################################
 
 
 
@@ -267,17 +267,31 @@ def thisfunc():
         # mycursor.execute("INSERT INTO project_applicants VALUES(" + "'"+username+"',"+  "'"+idd+"',"+" 'Under review','2021-05-29 23:39:36',16.14);") 
         
         
+@app.route('/projectsort' , methods=['POST','GET'])
+def sortproject():
+    if request.method=='POST':
+        if request.form['submit_button'] == 'Filter by location': 
+            task_content = request.form['locname']
+            
+            mycursor.execute('select name, location , size , ongoing_project_id  from ongoing_projects where assigned="NO" AND location= "'+ task_content+'"' ) 
+            
+            data = mycursor.fetchall() #data from database 
+            return render_template('projectsearch.html',value=data)
 
 
 
-@app.route('/putbid/<int:id>',)
+
+
+@app.route('/putbid/<id>',)
 def display_project_bid(id):
     # // get the project details using this id
     # // display the project details here
     #// i have removed the for loop in the parent page 
     print( "cxnhfjd"+ str(id))
     global idd
-    idd ="ONGP0010"
+    print (id)
+    idd = id 
+
     mycursor.execute('select *  from project_requirements where project_req_id ='+"'"+ idd +"'" ) 
     data = mycursor.fetchall() #data from database 
     
@@ -358,10 +372,11 @@ def banksort():
 @app.route('/housesort' , methods=['POST','GET'])
 def housesort():
     if request.method=='POST':
-        if request.form['submit_button'] == 'Fiter by location': 
+        if request.form['submit_button'] == 'Filter by location': 
             task_content = request.form['locname']
             print(task_content)
             mycursor.execute("select * from Completed_Projects where (location= %s)",(task_content,)) 
+            print("select * from Completed_Projects where (location= %s)",(task_content,))
             data = mycursor.fetchall() #data from database 
             return render_template('house_search.html',value=data)
         if request.form['submit_button'] == 'Apply for the entered house': 
