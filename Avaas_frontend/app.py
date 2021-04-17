@@ -36,21 +36,132 @@ def index():
 
 
     
+####################Government#####################
+
+
+
+
 @app.route('/govt' , methods=['POST','GET'])
-def add_new_projects():
-    if request.method=='POST': 
+def add_projects():
+    if request.method=='POST':
         if request.form['submit_button'] == 'Add new project':
             return render_template('newproject.html')
         if request.form['submit_button'] == 'View ongoing projects':
-            #topresent=get_ongoing_projects(id)  here we add those projects which correspond to this government  id; 
-
-            return render_template('view_ongoing.html', projects=[])
+            return render_template('ongoingProj1.html', projects=[])
         if request.form['submit_button'] == 'View completed projects':
-            return render_template('view_completed.html')
+
+            mycursor.execute("SELECT DISTINCT cp.name AS 'Project Name', c.contractor_name AS 'Project Contractor', COUNT(project_id) AS 'No. of Houses' FROM Completed_Projects cp INNER JOIN contractors c ON cp.p_contractor_id = c.contractor_id INNER JOIN houses_in_one_project h ON cp.completed_project_id = h.project_id WHERE govt_add_id=%s GROUP BY(project_id)",(username,))
+            data = mycursor.fetchall()
+            return render_template('view_completed.html', value=data)
         if request.form['submit_button'] == 'Check for the transactions':
-            return render_template('view_transactions.html')
+            return render_template('transaction_govt_cover.html')
 
 
+
+@app.route('/ongoingProj' , methods=['POST','GET'])
+def ongoing_Govt():
+    if request.method=='POST':
+        if request.form['submit_button'] == 'View Upcoming Projects':
+            mycursor.execute("SELECT name AS 'Project Name',location AS 'Location',size AS 'size' FROM ongoing_projects WHERE assigned='NO'AND govt_add_id=%s",(username,))
+            data = mycursor.fetchall()
+            return render_template('UpcomingGovt.html', value=data)
+        if request.form['submit_button'] == 'View Live Projects':
+            mycursor.execute("SELECT op.name AS 'Project Name', op.completion_percentage AS 'Project Completion', c.contractor_name AS 'Assigned Contractor' FROM ongoing_projects op JOIN contractors c ON op.p_contractor_id = c.contractor_id AND op.govt_add_id=%s",(username,))
+            data = mycursor.fetchall()
+            return render_template('LiveGovt.html', value=data)
+
+
+
+
+
+@app.route('/govt_transc' , methods=['POST','GET'])
+def govt_transactions():
+    if request.method=='POST':
+        if request.form['submit_button'] == 'House Payments from Public':
+            mycursor.execute(    "SELECT t.date_of_transaction AS 'Date of Transaction', t.sender_id AS 'Sender ID', g.govt_name AS 'Govt. Name', t.receiver_id AS 'Public ID', fc.name AS 'Public Name', t.amount as 'Amount' FROM Transactions t INNER JOIN Government g ON t.receiver_id = g.f_customer_id INNER JOIN Financial_Customers fc ON t.sender_id = fc.f_customer_id WHERE govt_id =%s",(username,))
+            data = mycursor.fetchall()
+            return render_template('Govt_Transac_Public.html', value=data)
+        if request.form['submit_button'] == 'Payments to Contractors':
+            mycursor.execute(
+
+            "SELECT t.date_of_transaction AS 'Date of Transaction', t.sender_id AS 'Sender ID', g.govt_name AS 'Govt. Name', t.receiver_id AS 'Contractor ID', fc.name AS 'Contractor Name', t.amount as 'Amount' FROM Transactions t INNER JOIN Government g ON t.sender_id = g.f_customer_id INNER JOIN Financial_Customers fc ON t.receiver_id = fc.f_customer_id WHERE govt_id =%s",(username,)
+            )
+            data = mycursor.fetchall()
+            return render_template('Govt_Transac_Contr.html', value=data)
+
+
+@app.route('/transactionfilterGovtCon' , methods=['POST','GET'])
+def govt_transactions1():
+    if request.method=='POST':
+        if request.form['submit_button'] == 'Sort by date':
+            mycursor.execute(    "SELECT t.date_of_transaction AS 'Date of Transaction', t.sender_id AS 'Sender ID', g.govt_name AS 'Govt. Name', t.receiver_id AS 'Contractor ID', fc.name AS 'Contractor Name', t.amount as 'Amount' FROM Transactions t INNER JOIN Government g ON t.sender_id = g.f_customer_id INNER JOIN Financial_Customers fc ON t.receiver_id = fc.f_customer_id WHERE govt_id =%s ORDER BY t.date_of_transaction",(username,))
+            data = mycursor.fetchall()
+            return render_template('Govt_Transac_Contr.html', value=data)
+        if request.form['submit_button'] == 'Sort by amount':
+            mycursor.execute(    "SELECT t.date_of_transaction AS 'Date of Transaction', t.sender_id AS 'Sender ID', g.govt_name AS 'Govt. Name', t.receiver_id AS 'Contractor ID', fc.name AS 'Contractor Name', t.amount as 'Amount' FROM Transactions t INNER JOIN Government g ON t.sender_id = g.f_customer_id INNER JOIN Financial_Customers fc ON t.receiver_id = fc.f_customer_id WHERE govt_id =%s ORDER BY t.amount",(username,))
+            data = mycursor.fetchall()
+            return render_template('Govt_Transac_Contr.html', value=data)
+
+
+            #Other 2 sortings left
+@app.route('/transactionfilterGovtPub' , methods=['POST','GET'])
+def govt_transactions2():
+    if request.method=='POST':
+        if request.form['submit_button'] == 'Sort by date':
+            mycursor.execute(    "SELECT t.date_of_transaction AS 'Date of Transaction', t.sender_id AS 'Sender ID', g.govt_name AS 'Govt. Name', t.receiver_id AS 'Public ID', fc.name AS 'Public Name', t.amount as 'Amount' FROM Transactions t INNER JOIN Government g ON t.receiver_id = g.f_customer_id INNER JOIN Financial_Customers fc ON t.sender_id = fc.f_customer_id WHERE govt_id =%s ORDER BY t.date_of_transaction",(username,))
+            data = mycursor.fetchall()
+            return render_template('Govt_Transac_Public.html', value=data)
+        if request.form['submit_button'] == 'Sort by amount':
+            mycursor.execute(    "SELECT t.date_of_transaction AS 'Date of Transaction', t.sender_id AS 'Sender ID', g.govt_name AS 'Govt. Name', t.receiver_id AS 'Public ID', fc.name AS 'Public Name', t.amount as 'Amount' FROM Transactions t INNER JOIN Government g ON t.receiver_id = g.f_customer_id INNER JOIN Financial_Customers fc ON t.sender_id = fc.f_customer_id WHERE govt_id =%s ORDER BY t.amount",(username,))
+            data = mycursor.fetchall()
+            return render_template('Govt_Transac_Public.html', value=data)
+
+
+
+            #Other 2 sortings left
+
+
+          
+          
+          
+
+@app.route('/newproject' , methods=['POST','GET'])
+def finaliseprojects():
+    if request.method=='POST': 
+        if request.form['submit_button'] == 'finalisedetails':
+            return render_template('govt.html', hje= "New project Added")
+          
+          
+
+
+
+            
+@app.route('/viewproject/<int:id>',)
+def update(id):
+    # // get the project details using this id
+    # // display the project details here
+    #// i have removed the for loop in the parent page 
+    print( "cxnhfjd"+ str(id))
+    return render_template('projectdetails_ongoing.html')
+
+  
+  
+  
+  ######### Government Over ###########
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
 @app.route('/fin_insti' , methods=['POST','GET'])
 def add_new_projects():
     if request.method=='POST': 
@@ -71,23 +182,6 @@ def add_new_projects():
         
 
 
-
-@app.route('/newproject' , methods=['POST','GET'])
-def finaliseprojects():
-    if request.method=='POST': 
-        if request.form['submit_button'] == 'finalisedetails':
-            return render_template('govt.html', hje= "New project Added")
-
-
-
-            
-@app.route('/viewproject/<int:id>',)
-def update(id):
-    # // get the project details using this id
-    # // display the project details here
-    #// i have removed the for loop in the parent page 
-    print( "cxnhfjd"+ str(id))
-    return render_template('projectdetails_ongoing.html')
 
 
 
