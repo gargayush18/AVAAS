@@ -9,11 +9,13 @@
     <table border="1" >
         <thead> 
            <tr>
-               <th>Transcation_id</th>
-               <th>Date of Transcation</th>
-               <th>Sender_id</th>
-               <th>Receiver_id</th>
-               <th>Amount</th>
+            <th>Transcation_id</th>
+            <th>Date of Transcation</th>
+            <th>Sender_id</th>
+            <th>Sender Name</th>
+            <th>Reciever_id</th>
+            <th>Reciever Name</th>
+            <th>Amount</th>
            </tr>
            </thread>
         
@@ -26,26 +28,32 @@
                    <td>{{row[2]}}</td>
                    <td>{{row[3]}}</td>
                    <td>{{row[4]}}</td>
-                    
+                   <td>{{row[5]}}</td>
+                   <td>{{row[6]}}</td>
+                
                </tr> 
            {% endfor %} 
        </tbody> 
               
        </table>
+
+       <h2>Loan Info</h2>
+       <h4>Date of Issue : {{val2[6]}}</h4>
+       <h4>Loan Amount : {{val2[7]}} Crs.</h4>
+       <h4>Interest Rate  : {{val2[5]}}  %per Annum</h4>
+       <h4> Time : {{val2[9]}} years </h4>
+       <h4> Amount Paid back  : {{val2[8]}} Crs. </h4>
+
     
 <br/><br/><br/><br/><br/><br/>
-<label>Total Amount: 10000000000000</label><br/>
-<label>RoI:9 </label><br/>
-<label>Amount paid back : 789999999 </label><br/>
-<label> Amount left: 10</label><br/><br/><br/><br/><br/><br/>
     <div id= "filter">
         <form action="/transactionfilterloan" method= "POST">
             <input type="submit"  name = "submit_button" value ="Sort by date">
             <input type="submit" name = "submit_button" value ="Filter by reciever id ">
             <input type="submit" name = "submit_button" value ="sort by amount">
             <input type="submit" name = "submit_button" value ="check transcation between these dates ">
-            <h1>Pyhton mein iska code nahi likha hai abhi</h1>
-        </form>
+            
+        </form> 
     
     </div>
    

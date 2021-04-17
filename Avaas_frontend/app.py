@@ -228,6 +228,48 @@ def banksot():
             return render_template('bankpagecont.html',value=data)
 
 
+@app.route('/contractortransact' , methods=['POST','GET'])
+def contractortransact():
+    if request.method=='POST': 
+        if request.form['submit_button'] == 'General Payments':
+            mycursor.execute("select f_customer_id from contractors where contractor_id=%s",(username,))
+            val=mycursor.fetchall() 
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            mycursor.execute("SELECT   t. id_transaction , t.date_of_transaction, t.sender_id, fc.name , t.receiver_id, fd.name , t.amount FROM Transactions t JOIN Financial_Customers fc ON t.sender_id = fc.f_customer_id JOIN Financial_Customers fd ON t.receiver_id= fd.f_customer_id where  transaction_type = 'general' AND (sender_id= '" +f_cust_id +"'or receiver_id= '" +f_cust_id + "')")
+
+            data = mycursor.fetchall()
+            print( data)
+            return render_template("transaction_page_user.html",value=data)
+
+    if request.method=='POST': 
+        if request.form['submit_button'] == 'Check my loan payments':
+            mycursor.execute("select f_customer_id from contractors where contractor_id=%s",(username,))
+            val=mycursor.fetchall() 
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            
+            mycursor.execute("SELECT   t. id_transaction , t.date_of_transaction, t.sender_id, fc.name , t.receiver_id, fd.name , t.amount FROM Transactions t JOIN Financial_Customers fc ON t.sender_id = fc.f_customer_id JOIN Financial_Customers fd ON t.receiver_id= fd.f_customer_id where  transaction_type = 'loan_payment' AND (sender_id= '" +f_cust_id +"'or receiver_id= '" +f_cust_id + "')")
+
+            da = mycursor.fetchall()
+            mycursor.execute("select  *  from loans where id_borrower='"+ f_cust_id+ "'")
+            data = mycursor.fetchall()
+            print( data)
+            if ( len( data)==0):
+                data=["NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", "NA", ]
+
+            
+
+            print( da)
+            return render_template("loan.html",value=da, val2= data[0] )
+            
+            
+            
+            
 
 
 
@@ -245,7 +287,7 @@ def search_projects():
             mycursor.execute('select name, location , size , ongoing_project_id  from ongoing_projects where assigned="NO"') 
             
             data = mycursor.fetchall() #data from database 
-            print( data)
+            
             return render_template('projectsearch.html', value = data)
         if request.form['submit_button'] == "Search for Banks":
             mycursor.execute("SELECT loan_offer_id,name,ROI,max_loan_amount,max_duration,no_of_installments FROM loans_offered INNER JOIN Banks ON loans_offered.f_institution_id=Banks.f_institution_id WHERE loan_type='contractor'") 
@@ -264,18 +306,8 @@ def search_projects():
 
 
         if request.form['submit_button'] == 'Check for the transactions':
-            mycursor.execute("select f_customer_id from Contractors where contractor_id=%s",(username,))
-            val=mycursor.fetchall() 
-            f_cust_id=" "
-            for row in val:
-                f_cust_id=row[0]
-            print(f_cust_id)
-            mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='general' and (sender_id=%s or receiver_id=%s))",(f_cust_id,f_cust_id,)) 
-            data = mycursor.fetchall()
+            return render_template('Contractorpayments.html')
             
-            
-            return render_template('transaction_page_user.html',value =  data)
-        
         
         
         
@@ -322,6 +354,7 @@ def thisfunc():
 def sortproject():
     if request.method=='POST':
         if request.form['submit_button'] == 'Filter by location': 
+            
             task_content = request.form['locname']
             
             mycursor.execute('select name, location , size , ongoing_project_id  from ongoing_projects where assigned="NO" AND location= "'+ task_content+'"' ) 
@@ -467,11 +500,23 @@ def publicpayments():
             for row in val:
                 f_cust_id=row[0]
             print(f_cust_id)
-            mycursor.execute("SELECT * FROM Transactions WHERE (transaction_type='general' and (sender_id=%s or receiver_id=%s))",(f_cust_id,f_cust_id,)) 
+            mycursor.execute("SELECT   t. id_transaction , t.date_of_transaction, t.sender_id, fc.name , t.receiver_id, fd.name , t.amount FROM Transactions t JOIN Financial_Customers fc ON t.sender_id = fc.f_customer_id JOIN Financial_Customers fd ON t.receiver_id= fd.f_customer_id where  transaction_type = 'general' AND sender_id= '" +f_cust_id +"'or receiver_id= '" +f_cust_id + "'")
+
             data = mycursor.fetchall()
+            print( data)
             return render_template("view_transactions.html",value=data)
+        
+        
+        
+        
         if request.form['submit_button'] == 'Check my loan payments':
             mycursor.execute("select f_customer_id from Public where public_id=%s",(username,))
+            val=mycursor.fetchall() 
+            f_cust_id=" "
+            for row in val:
+                f_cust_id=row[0]
+            print(f_cust_id)
+            mycursor.execute("SELECT   t. id_transaction , t.date_of_transaction, t.sender_id, fc.name , t.receiver_id, fd.name , t.amount FROM Transactions t JOIN Financial_Customers fc ON t.sender_id = fc.f_customer_id JOIN Financial_Customers fd ON t.receiver_id= fd.f_customer_id where  transaction_type = 'loan_payment' AND sender_id= '" +f_cust_id +"'or receiver_id= '" +f_cust_id + "'")
             val=mycursor.fetchall()
             f_cust_id=" "
             for row in val:
