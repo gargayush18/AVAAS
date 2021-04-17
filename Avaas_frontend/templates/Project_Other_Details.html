@@ -1,0 +1,52 @@
+<html>
+<head>
+
+</head>
+
+
+<body>
+
+    <table border="1" >
+
+       {% for row in value %}
+       <tr>
+         <th>Name</th>
+         <td>{{row[0]}}</td>
+       </tr>
+        <tr>
+          <th>Location</th>
+          <td>{{row[1]}}</td>
+        </tr>
+        <tr>
+          <th>Size</th>
+          <td>{{row[2]}}</td>
+        </tr>
+        <tr>
+          <th>Construction Material (in Kilo Tonnes)</th>
+          <td>{{row[3]}}</td>
+        </tr>
+
+        <tr>
+          <th>Labour</th>
+          <td>{{row[4]}}</td>
+        </tr>
+
+        <tr>
+          <th> Engineers</th>
+          <td>{{row[5]}}</td>
+        </tr>
+
+           {% endfor %}
+
+       </table>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
