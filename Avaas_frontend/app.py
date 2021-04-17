@@ -173,7 +173,7 @@ def do_something():
         if request.form['submit_button'] == 'View contractor competency score':
             mycursor.execute("SELECT f_customer_id,category,credibility_score from (SELECT pg.f_institution_id, pg.f_customer_id, fc.category, fc.credibility_score FROM (SELECT b.f_institution_id, g.f_customer_id FROM loan_applicants g JOIN loans_offered b ON g.loan_id=b.loan_offer_id)  AS pg  Join financial_customers fc on  pg.f_customer_id =fc.f_customer_id) as pg2 WHERE (f_institution_id=%s and category in ('contractor'))", (username,))
             data = mycursor.fetchall()
-            return render_template('FIcontractorCompetency', value=data)
+            return render_template('FIcontractorCompetency.html', value=data)
 
         if request.form['submit_button'] == 'View projects build by a contractor':
             mycursor.execute("SELECT id_lender, id_borrower, project_id, house_id, owner_id from (SELECT * FROM (SELECT b.completed_project_id, g.id_lender, g.id_borrower FROM loans g JOIN completed_projects b ON g.id_borrower=b.p_contractor_id) AS pg  Join houses_in_one_project ho on  pg.completed_project_id =ho.project_id) as pg2 WHERE (id_lender=%s) ", (username,))
