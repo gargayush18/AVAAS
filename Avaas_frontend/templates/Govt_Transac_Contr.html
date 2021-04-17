@@ -1,0 +1,58 @@
+<html>
+<head>
+
+</head>
+
+
+<body>
+
+    <table border="1" >
+        <thead>
+           <tr>
+               <th>Date of transaction</th>
+               <th>Sender ID</th>
+               <th>Govt. Name</th>
+               <th>Contractor ID</th>
+               <th>Contractor Name</th>
+               <th>Amount (in crores)</th>
+
+           </tr>
+           </thead>
+
+
+                  <tbody>
+           {% for row in value %}
+               <tr>
+                   <td>{{row[0]}}</td>
+                   <td>{{row[1]}}</td>
+                   <td>{{row[2]}}</td>
+                   <td>{{row[3]}}</td>
+                   <td>{{row[4]}}</td>
+                   <td>{{row[5]}}</td>
+
+
+
+               </tr>
+           {% endfor %}
+       </tbody>
+
+       </table>
+
+
+       <br/><br/><br/><br/><br/><br/>
+           <div id= "filter">
+               <form action="/transactionfilterGovtCon" method= "POST">
+                   <input type="submit"  name = "submit_button" value ="Sort by date">
+                   <input type="submit" name = "submit_button" value ="Filter by reciever id ">
+                   <input type="submit" name = "submit_button" value ="Sort by amount">
+                   <input type="submit" name = "submit_button" value ="check transcation between these dates ">
+
+               </form>
+
+           </div>
+
+
+
+</body>
+
+</html>

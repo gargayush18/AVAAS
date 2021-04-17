@@ -1,0 +1,39 @@
+<html>
+<head>
+
+</head>
+
+
+<body>
+
+    <table border="1" >
+        <thead>
+           <tr>
+               <th>Project Name</th>
+               <th>Location</th>
+               <th>Size</th>
+
+           </tr>
+           </thead>
+
+
+                  <tbody>
+           {% for row in value %}
+               <tr>
+                   <td>{{row[0]}}</td>
+                   <td>{{row[1]}}</td>
+                   <td>{{row[2]}}</td>
+
+
+               </tr>
+           {% endfor %}
+       </tbody>
+
+       </table>
+
+
+
+
+</body>
+
+</html>
