@@ -9,16 +9,13 @@
     <table border="1" >
         <thead>
            <tr>
-               <th>Institution_id</th>
-               <th>Bank name</th>
-               <th>Customer id</th>
-               <th>Customer Name </th>
-               <th>Bank location</th>
-               <th>Customer category</th>
-               <th>Loans clear</th>
-               <th>Credibility score</th>
+               <th>Borrower</th>
+               <th>Borrower_id</th>
+               <th> Interst Rate </th>
+               <th> Amount </th>
+               <th>PAid back </th>
+               <th>Maturity Period</th>
                
-
            </tr>
            </thead>
 
@@ -26,12 +23,12 @@
                   <tbody>
            {% for row in value %}
                <tr>
-                   <td>{{row[0]}}</td>
                    <td>{{row[1]}}</td>
-                   <td>{{row[2]}}</td>
                    <td>{{row[3]}}</td>
-                   <td>{{row[4]}}</td>
                    <td>{{row[5]}}</td>
+                   <td>{{row[7]}}</td>
+                   <td>{{row[8]}}</td>
+                   <td>{{row[9]}}</td>
 
 
 
@@ -42,7 +39,7 @@
        </table>
 
 
-       
+       <h3>Total no of borrowers : {{val2[0][0]}}</h3>
 
 
 </body>

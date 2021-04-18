@@ -20,7 +20,7 @@ def index():
         username= task_content
         print(task_content)
         if task_content[0:3]=="BNK":
-            return render_template('finance.html')
+            return render_template('finance.html', hje = hje )
         if task_content[0:4]=="Cont":
             return render_template('contractor.html', hje= hje )
         if task_content[0:4]=="GOVT":
@@ -165,25 +165,29 @@ def update(id):
 @app.route('/fin_insti' , methods=['POST','GET'])
 def do_something():
     if request.method=='POST': 
-        if request.form['submit_button'] == 'View bank lender details':
-            mycursor.execute("SELECT b.f_institution_id,b.`name`, b.f_customer_id, fc.`name`, b.location, category, loans_clear, credibility_score  FROM Banks b JOIN financial_customers fc ON b.f_customer_id=fc.f_customer_id where (b.f_institution_id=%s", (username,))
+        if request.form['submit_button'] == 'View lender details':
+            mycursor.execute("select * from loans where id_lender ='"+ username + "'" )  
             data = mycursor.fetchall()
-            return render_template('FIlenderdetails.html', value=data)
+            mycursor.execute("select COUNT(borrower) from loans where id_lender ='"+ username + "'" )  
+            dat = mycursor.fetchall()
+            return render_template('FIlenderdetails.html', value=data, val2 = dat)
 
         if request.form['submit_button'] == 'View contractor competency score':
-            mycursor.execute("SELECT f_customer_id,category,credibility_score from (SELECT pg.f_institution_id, pg.f_customer_id, fc.category, fc.credibility_score FROM (SELECT b.f_institution_id, g.f_customer_id FROM loan_applicants g JOIN loans_offered b ON g.loan_id=b.loan_offer_id)  AS pg  Join financial_customers fc on  pg.f_customer_id =fc.f_customer_id) as pg2 WHERE (f_institution_id=%s and category in ('contractor'))", (username,))
+            mycursor.execute("select  c.contractor_name , c.competency_score from loan_applicants l  Join Contractors c  ON c.f_customer_id= l.f_customer_id  Join loans_offered o  ON o.loan_offer_id = l.loan_id Where  o.f_institution_id='"+username+"'")
             data = mycursor.fetchall()
-            return render_template('FIcontractorCompetency', value=data)
+            return render_template('FIcontractorCompetency.html', value=data)
 
         if request.form['submit_button'] == 'View projects build by a contractor':
-            mycursor.execute("SELECT id_lender, id_borrower, project_id, house_id, owner_id from (SELECT * FROM (SELECT b.completed_project_id, g.id_lender, g.id_borrower FROM loans g JOIN completed_projects b ON g.id_borrower=b.p_contractor_id) AS pg  Join houses_in_one_project ho on  pg.completed_project_id =ho.project_id) as pg2 WHERE (id_lender=%s) ", (username,))
+            mycursor.execute("select  c.contractor_name , c.competency_score from loan_applicants l  Join Contractors c  ON c.f_customer_id= l.f_customer_id  Join loans_offered o  ON o.loan_offer_id = l.loan_id Where  o.f_institution_id='"+username+"'")
+
+            
             data = mycursor.fetchall()
-            return ender_template('FIprojectimpact.html', value=data)
+            return render_template('FIprojectimpact.html', value=data)
 
         if request.form['submit_button'] == 'View loans not paid back':
             mycursor.execute("SELECT loan_id, id_borrower, id_lender, date_of_issue, loan_amount, amount_paid_back, loan_maturity_in_years from Loans where (amount_paid_back<loan_amount+loan_amount*interest_rate*loan_maturity_in_years/100 and id_lender=%s))", (username, ))
             data = mycursor.fetchall()
-            return ender_template('FIbadloans.html', value=data)
+            return render_template('FIbadloans.html', value=data)
 
 
 
