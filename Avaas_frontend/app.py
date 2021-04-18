@@ -7,7 +7,8 @@ mydb = mysql.connector.connect(
   host="localhost",
   user="root",
   password="Ishu@123",
-  database='AVAAS2'
+  database='AVAAS2',
+  autocommit = True
 )
 mycursor = mydb.cursor()
 app = Flask(__name__)
