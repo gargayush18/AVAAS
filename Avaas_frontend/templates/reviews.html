@@ -1,30 +1,31 @@
 <html>
 <head>
-    HOME REQUEST STATUS
+    
 </head>
 
 
 <body>
- <h1>Welcome {{hje}}</h1>
+ <h1>Reviews</h1>
+   
 
     <table border="1" >
         <thead> 
            <tr>
+               <th>Review Id</th>
                <th>Public Id</th>
-               <th>Project Id</th>
-               <th>Application Status</th>
-               <th>Application Time</th>
+               <th>Review Score</th>
+               <th>Review Comment</th>
            </tr>
            </thread>
             
-    
                   <tbody> 
            {% for row in value %}  
                <tr> 
                    <td>{{row[0]}}</td> 
                    <td>{{row[1]}}</td> 
-                   <td>{{row[2]}}</td>
                    <td>{{row[3]}}</td>
+                   <td>{{row[4]}}</td>
+                   <td><a href="/projectreviewforpublic/{{row[0]}}"></a></td>
                     
                </tr> 
            {% endfor %} 
@@ -35,9 +36,11 @@
 
 
     <!-- <br/><br/><br/><br/><br/><br/><br/>
-    <form action="/stilltoadd" method ="POST">
-        <input type ="text">
+    <form action="/housesort" method ="POST">
+        <input type ="text" name="locname">
         <input type="submit"  name = "submit_button" value ="Filter by location"><br/> 
+        <input type ="text" name="projectid">
+        <input type="submit"  name = "submit_button" value ="Apply for the entered house"><br/> 
         
         <h1>Pyhton mein iska code nahi likha hai abhi</h1>
     </form> -->

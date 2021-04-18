@@ -9,9 +9,11 @@
     <table border="1" >
         <thead>
            <tr>
+             <th>Project ID</th>
                <th>Project Name</th>
                <th>Project Completeion</th>
                <th>Assigned Contrator</th>
+               <th>Assigned Contrator ID</th>
 
            </tr>
            </thead>
@@ -20,9 +22,21 @@
                   <tbody>
            {% for row in value %}
                <tr>
-                   <td>{{row[0]}}</td>
+                 <td>
+                   <form action="/MoreDetailsProj" method ="POST">
+                       <input type ="submit" name="submit_button" value ={{row[0]}} >
+
+                </form>
+                 </td>
                    <td>{{row[1]}}</td>
                    <td>{{row[2]}}</td>
+                   <td>{{row[3]}}</td>
+                   <td>
+                     <form action="/MoreDetailsContr" method ="POST">
+                         <input type ="submit" name="submit_button" value ={{row[4]}} >
+
+                  </form>
+                   </td>
 
 
                </tr>
@@ -31,6 +45,8 @@
 
        </table>
 
+       <br/><br/><br/><br/><br/><br/><br/>
+      
 
 
 

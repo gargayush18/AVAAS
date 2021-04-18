@@ -1,0 +1,66 @@
+<html>
+<head>
+
+</head>
+
+
+<body>
+
+    <table border="1" >
+
+       {% for row in value %}
+        <tr>
+          <th>Contractor ID</th>
+          <td>{{row[0]}}</td>
+        </tr>
+        <tr>
+          <th>Contractor Name</th>
+          <td>{{row[1]}}</td>
+        </tr>
+        <tr>
+          <th>Date Of Birth</th>
+          <td>{{row[2]}}</td>
+        </tr>
+
+        <tr>
+          <th>Phone Number</th>
+          <td>{{row[3]}}</td>
+        </tr>
+
+        <tr>
+          <th>Other Contact Details</th>
+          <td>{{row[4]}}</td>
+        </tr>
+        <tr>
+          <th>Experience (in years)</th>
+          <td>{{row[5]}}</td>
+        </tr>
+        <tr>
+          <th>No. Of completed Projects</th>
+          <td>{{row[6]}}</td>
+        </tr>
+        <tr>
+          <th>Personal Workforce Available</th>
+          <td>{{row[7]}}</td>
+        </tr>
+
+
+        <tr>
+          <th>Competency Score</th>
+          <td>{{row[8]}}</td>
+        </tr>
+
+           {% endfor %}
+
+       </table>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
