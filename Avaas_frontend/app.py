@@ -148,7 +148,7 @@ def complaintssort():
         if request.form['submit_button'] == 'Sort by Date':
             
             
-            mycursor.execute('Select name, actual_query, date_posted  , resolved from completed_projects , 	queries  where  queries.project_id=completed_project_id  And resolved = "No" AND  p_contractor_id="'+username+'" order by(date_posted)') 
+            ~mycursor.execute('Select name, actual_query, date_posted  , resolved from completed_projects , 	queries  where  queries.project_id=completed_project_id  And resolved = "No" AND  p_contractor_id="'+username+'" order by(date_posted)') 
             data = mycursor.fetchall() #data from database 
 
 
@@ -368,9 +368,12 @@ def search_projects():
             data = mycursor.fetchall() #data from database 
             print ( data)
             if ( len( data) ==0 ):
-                dat = "Oho! you have no current project going on"
+                data=[["NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA"]]        
+                da=[["NA","NA","NA","NA","NA","NA","NA","NA","NA","NA","NA"]]        
+                das = "Oho! you have no current project going on"
             else:
-                dat= "\nName =" + str(data[0][3])+  " \nLocation  =" + str(data[0][4])+ "\n Size  =" +str( data[0][5])+   "\n Completion Percentage  =" + str(data[0][6])
+                das=""
+                dat= "\nName =" + str(data[0][3])+  " \nLocation  =" + str(data[0][4])+ "\n Size  =" +str( data[0][5])+   "\n Completion Percentage  =" + str(data[0][7])
                 mycursor.execute('Select * from supplies where project_supplies_id="' + data[0][0] + '"') 
                 da = mycursor.fetchall() #data from database 
                 dat= dat +" \n Supplies Data \n"
@@ -385,9 +388,9 @@ def search_projects():
     
                 
 
-            print( dat)
+            
 
-            return render_template('freepage.html', value = dat)
+            return render_template('freepage.html', value = data , val2 = da ,  val3 = das)
 
 @app.route('/finalbid' , methods=['POST','GET'])
 
